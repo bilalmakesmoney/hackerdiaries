@@ -186,43 +186,6 @@
   );
 }
 
-/* Digicam Floating Animation - slow gentle hover with tiny rotation */
-@keyframes digicam-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(0.8deg);
-  }
-  50% {
-    transform: translateY(-4px) rotate(-0.4deg);
-  }
-  75% {
-    transform: translateY(-10px) rotate(0.3deg);
-  }
-}
-
-.animate-digicam-float {
-  animation: digicam-float 8s ease-in-out infinite;
-}
-
-/* CD Floating Animation - subtle drift */
-@keyframes cd-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-6px) rotate(-0.5deg);
-  }
-  66% {
-    transform: translateY(-3px) rotate(0.3deg);
-  }
-}
-
-.animate-cd-float {
-  animation: cd-float 10s ease-in-out infinite;
-}
-
 /* Custom retro scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
