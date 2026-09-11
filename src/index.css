@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-royal-dark: #070e2c;
+    --color-royal-mid: #0f256e;
+    --color-royal-bright: #1f4ed8;
+    --color-gold: #f5c518;
+    --color-gold-bright: #ffb800;
+    --color-cream: #f5f0dc;
+    --color-cyan: #4dd8ff;
+  }
+
+  body {
+    background-color: #070e2c;
+    color: #f5f0dc;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Fonts */
+.font-display {
+  font-family: 'Cinzel Decorative', Georgia, 'Times New Roman', serif;
+}
+
+.font-pixel {
+  font-family: 'Silkscreen', 'Press Start 2P', monospace;
+}
+
+.font-arcade {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.font-terminal {
+  font-family: 'VT323', monospace;
+}
+
+.font-heading {
+  font-family: 'Syne', sans-serif;
+}
+
+/* CRT Scanline Overlay */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.28) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Subtle Checkerboard Floor */
+.checker-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+}
+
+/* Y2K Gold Flared Headline Treatment */
+.gold-text-stroke {
+  color: #ffc83b;
+  text-shadow: 
+    0 0 18px rgba(255, 184, 0, 0.65),
+    0 0 40px rgba(245, 197, 24, 0.35),
+    1px 1px 0px #381e02,
+    2px 2px 0px #1f1000,
+    3px 3px 0px #0a0600;
+  -webkit-text-stroke: 1.2px #221200;
+}
+
+.gold-glow {
+  filter: drop-shadow(0 0 12px rgba(255, 184, 0, 0.6));
+}
+
+.cyan-glow {
+  text-shadow: 0 0 10px rgba(77, 216, 255, 0.75), 0 0 20px rgba(77, 216, 255, 0.4);
+}
+
+/* Chunky Beveled Y2K Buttons */
+.y2k-btn-gold {
+  background: linear-gradient(180deg, #ffe369 0%, #ffb800 48%, #e09200 52%, #ffbf1f 100%);
+  border-top: 2px solid #fff5be;
+  border-left: 2px solid #fff5be;
+  border-bottom: 3px solid #6b4000;
+  border-right: 3px solid #6b4000;
+  box-shadow: 0 4px 14px rgba(255, 184, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  color: #1a0f00;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.1s ease-in-out;
+}
+.y2k-btn-gold:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 184, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+.y2k-btn-gold:active {
+  transform: translateY(1px);
+  border-top: 3px solid #6b4000;
+  border-left: 3px solid #6b4000;
+  border-bottom: 2px solid #fff5be;
+  border-right: 2px solid #fff5be;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Chrome / Silver Bevel Button */
+.y2k-btn-silver {
+  background: linear-gradient(180deg, #f0f3f8 0%, #c5cedd 49%, #9eaec5 51%, #bac6d8 100%);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #475569;
+  border-right: 2px solid #475569;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  color: #0c1a35;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.1s ease-in-out;
+}
+.y2k-btn-silver:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+.y2k-btn-silver:active {
+  transform: translateY(1px);
+  border-top: 2px solid #475569;
+  border-left: 2px solid #475569;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Windows XP Blue Titlebar */
+.xp-titlebar {
+  background: linear-gradient(90deg, #0055ea 0%, #3d88fc 50%, #0055ea 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Inset & Outset Bevel Containers */
+.xp-bevel-outset {
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  border-left: 2px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+  border-right: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.xp-bevel-inset {
+  border-top: 2px solid rgba(0, 0, 0, 0.6);
+  border-left: 2px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+  border-right: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Holographic CD Animation */
+@keyframes iridescent-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-cd-spin {
+  animation: iridescent-spin 20s linear infinite;
+}
+
+.animate-cd-spin-fast {
+  animation: iridescent-spin 5s linear infinite;
+}
+
+/* Vertical Laser Beam */
+.laser-beam {
+  background: radial-gradient(
+    ellipse at 50% 0%, 
+    rgba(77, 216, 255, 0.45) 0%, 
+    rgba(31, 78, 216, 0.25) 40%, 
+    rgba(7, 14, 44, 0) 75%
+  );
+}
+
+/* Custom retro scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1638;
+  border-left: 1px solid #1e3a8a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3d88fc, #0055ea);
+  border: 2px solid #0a1638;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}

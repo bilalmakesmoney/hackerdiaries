@@ -1,0 +1,118 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState } from 'react';
+import { HeroSection } from './components/HeroSection';
+import { AboutSection } from './components/AboutSection';
+import { TracksSection } from './components/TracksSection';
+import { ScheduleSection } from './components/ScheduleSection';
+import { SponsorsSection } from './components/SponsorsSection';
+import { FAQSection } from './components/FAQSection';
+import { CTASection } from './components/CTASection';
+import { Footer } from './components/Footer';
+import { Taskbar } from './components/Taskbar';
+import { RegisterModal } from './components/RegisterModal';
+import { SystemAlertModal } from './components/SystemAlertModal';
+import { retroAudio } from './utils/audio';
+
+export default function App() {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
+  const [showScanlines, setShowScanlines] = useState(true);
+
+  const handleOpenRegister = () => {
+    retroAudio.playClick();
+    setIsRegisterOpen(true);
+  };
+
+  const handleOpenSponsor = () => {
+    retroAudio.playAlert();
+    setIsSponsorModalOpen(true);
+  };
+
+  const handleSelectTrack = (trackName: string) => {
+    retroAudio.playClick();
+    setIsRegisterOpen(true);
+  };
+
+  const handleExplore = () => {
+    const aboutEl = document.getElementById('about');
+    if (aboutEl) {
+      aboutEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a] pb-12">
+      {/* Optional CRT Scanlines Overlay */}
+      {showScanlines && (
+        <div className="fixed inset-0 scanlines z-30 pointer-events-none opacity-40" />
+      )}
+
+      {/* Floating Scanline Toggle Easter Egg in top right */}
+      <div className="fixed top-3 right-3 z-40 select-none">
+        <button
+          type="button"
+          onClick={() => {
+            retroAudio.playClick();
+            setShowScanlines(!showScanlines);
+          }}
+          className="px-2 py-1 bg-[#09183d]/80 hover:bg-[#0f2868] border border-[#1b3a8a] text-[9px] font-pixel text-[#8fa8db] hover:text-[#ffd700] rounded shadow-md backdrop-blur-xs transition-colors cursor-pointer"
+          title="Toggle CRT Screen Scanlines"
+        >
+          CRT: {showScanlines ? 'ON' : 'OFF'}
+        </button>
+      </div>
+
+      {/* Main Single-Page Promotional Site Sections */}
+      <main className="relative">
+        {/* 1. HERO */}
+        <HeroSection
+          onRegisterClick={handleOpenRegister}
+          onExploreClick={handleExplore}
+        />
+
+        {/* 2. ABOUT / WHAT IS IT */}
+        <AboutSection onRegisterClick={handleOpenRegister} />
+
+        {/* 3. WHY JOIN / TRACKS OR THEMES */}
+        <TracksSection onSelectTrack={handleSelectTrack} />
+
+        {/* 4. SCHEDULE / TIMELINE */}
+        <ScheduleSection />
+
+        {/* 5. SPONSORS */}
+        <SponsorsSection onOpenSponsorModal={handleOpenSponsor} />
+
+        {/* 6. FAQ */}
+        <FAQSection />
+
+        {/* 7. CTA / REGISTER */}
+        <CTASection onRegisterClick={handleOpenRegister} />
+      </main>
+
+      {/* 8. FOOTER */}
+      <Footer />
+
+      {/* Persistent Retro Desktop Taskbar (Windows XP style) */}
+      <Taskbar
+        onOpenRegister={handleOpenRegister}
+        onOpenSponsor={handleOpenSponsor}
+      />
+
+      {/* Interactive Modals */}
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+      />
+
+      <SystemAlertModal
+        isOpen={isSponsorModalOpen}
+        onClose={() => setIsSponsorModalOpen(false)}
+        type="sponsor"
+      />
+    </div>
+  );
+}

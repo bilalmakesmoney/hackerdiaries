@@ -1,0 +1,6 @@
+{
+  "name": "Hacker Diaries - Under 18 Hackathon",
+  "description": "Promotional website for Hacker Diaries, an under-18 hackathon happening 15 Nov 2026 in Delhi NCR with Y2K early-2000s nostalgic aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
