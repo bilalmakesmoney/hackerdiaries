@@ -1,5 +1,6 @@
 import React from 'react';
 import { HolographicCD } from './HolographicCD';
+import { RetroDigicam } from './RetroDigicam';
 import { Y2KDolphin, StarPerson, RetroBadge } from './Y2KStickers';
 import { Sparkles, ArrowRight, Disc, MapPin, Calendar, Users, Zap } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
@@ -29,6 +30,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
           WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
         }}
       />
+
+      {/* === DECORATIVE FLOATING OBJECTS (behind content, above background) === */}
+
+      {/* Retro Digicam - Left side */}
+      <div className="absolute left-4 sm:left-8 md:left-12 lg:left-20 bottom-24 sm:bottom-32 md:bottom-40 z-[2] animate-digicam-float pointer-events-none hidden sm:block">
+        <div className="w-[120px] h-[84px] sm:w-[160px] sm:h-[112px] md:w-[200px] md:h-[140px]">
+          <RetroDigicam />
+        </div>
+      </div>
+
+      {/* Holographic CD - Bottom-right, partially cropped */}
+      <div className="absolute -right-16 sm:right-0 md:right-8 lg:right-16 bottom-0 sm:bottom-[-20px] md:bottom-[-10px] z-[2] animate-cd-float pointer-events-auto hidden sm:block">
+        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[300px] md:h-[300px]" style={{ clipPath: 'inset(0 0 0 0)' }}>
+          <HolographicCD size={300} tiltAngle={14} interactive={true} />
+        </div>
+        <div className="absolute -bottom-2 right-4 sm:right-8 font-mono text-[10px] text-[#8fa8db] flex items-center gap-2 whitespace-nowrap">
+          <span className="w-2 h-2 rounded-full bg-[#ffd700] animate-ping" />
+          <span className="hidden md:inline">DISC 01: HACKER_DIARIES_DELHI.ISO [CLICK DISC TO SPIN]</span>
+        </div>
+      </div>
 
       {/* Top Retro System Notification / Ticker */}
       <div className="relative z-10 mb-4 sm:mb-6 animate-pulse">
@@ -122,17 +143,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
             <Disc className="w-4 h-4 text-[#0055ea]" />
             <span>EXPLORE SYSTEM LOGS</span>
           </button>
-        </div>
-
-        {/* Holographic CD Mixtape Showcase Element */}
-        <div className="mt-10 sm:mt-12 flex flex-col items-center">
-          <div className="relative">
-            <HolographicCD size={260} tiltAngle={14} interactive={true} />
-          </div>
-          <div className="mt-3 font-mono text-[11px] text-[#8fa8db] flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#ffd700] animate-ping" />
-            <span>DISC 01: HACKER_DIARIES_DELHI.ISO [CLICK DISC TO SPIN]</span>
-          </div>
         </div>
 
       </div>
