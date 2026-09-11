@@ -77,35 +77,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
             DIARIES
           </h1>
 
-          {/* Decorative cyber dolphin sticker */}
-          <div className="absolute -top-7 -right-3 sm:-top-12 sm:-right-12 z-20 pointer-events-auto scale-75 sm:scale-100 origin-bottom-left">
-            <Y2KDolphin size={110} />
-          </div>
-
-          {/* Decorative star mascot on bottom left */}
-          <div className="hidden sm:block absolute -bottom-8 -left-12 z-20 pointer-events-auto">
-            <StarPerson size={90} />
+          {/* Decorative cyber dolphin sticker (Hidden on mobile) */}
+          <div className="hidden sm:block absolute -top-10 -right-4 sm:-top-12 sm:-right-12 z-20 pointer-events-auto">
+            <Y2KDolphin size={120} />
           </div>
         </div>
 
         {/* Sleek Pixel-Font Date & Venue Badges */}
-        <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-pixel select-none max-w-sm sm:max-w-none">
+        <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-pixel select-none">
           {/* Date Badge */}
-          <div className="px-3 sm:px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#ffd700] shadow-[0_0_12px_rgba(255,215,0,0.25)] flex items-center gap-1.5 sm:gap-2 transition-transform hover:scale-105">
+          <div className="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#ffd700] shadow-[0_0_12px_rgba(255,215,0,0.25)] flex items-center gap-1.5 sm:gap-2 transition-transform hover:scale-105">
             <Calendar className="w-3.5 h-3.5 text-[#ffd700]" />
             <span className="text-[#f5f0dc] tracking-wider text-[11px] sm:text-xs">15 NOV 2026</span>
           </div>
 
           {/* Venue Badge */}
-          <div className="px-3 sm:px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#4dd8ff] shadow-[0_0_12px_rgba(77,216,255,0.25)] flex items-center gap-1.5 sm:gap-2 transition-transform hover:scale-105">
+          <div className="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#4dd8ff] shadow-[0_0_12px_rgba(77,216,255,0.25)] flex items-center gap-1.5 sm:gap-2 transition-transform hover:scale-105">
             <MapPin className="w-3.5 h-3.5 text-[#4dd8ff]" />
             <span className="text-[#f5f0dc] tracking-wider text-[11px] sm:text-xs">DELHI NCR</span>
-          </div>
-
-          {/* Duration Badge */}
-          <div className="px-3 sm:px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#1e3a8a] text-[#8fa8db] flex items-center gap-1.5 sm:gap-2">
-            <Clock className="w-3.5 h-3.5 text-[#ffd700]" />
-            <span className="text-[#c5d8ff] tracking-wider text-[11px] sm:text-xs">12 HOURS</span>
           </div>
         </div>
 
