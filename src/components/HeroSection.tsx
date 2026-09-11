@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
 
       {/* Organic Floating Retro Digicam (Upper-Left Zone) */}
       <div 
-        className="absolute top-[8%] sm:top-[12%] md:top-[15%] lg:top-[18%] left-2 sm:left-6 md:left-10 lg:left-14 xl:left-24 2xl:left-32 z-20 pointer-events-auto origin-top-left transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
+        className="hidden lg:block absolute top-[8%] sm:top-[12%] md:top-[15%] lg:top-[18%] left-2 sm:left-6 md:left-10 lg:left-14 xl:left-24 2xl:left-32 z-20 pointer-events-auto origin-top-left transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
       >
         <div className="flex flex-col items-center animate-float-digicam">
           <RetroDigicam size={260} tiltAngle={-16} interactive={true} />
@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
 
       {/* Organic Floating Holographic CD (Lower-Right Zone) */}
       <div 
-        className="absolute bottom-[6%] sm:bottom-[10%] md:bottom-[12%] lg:bottom-[14%] right-2 sm:right-6 md:right-10 lg:right-14 xl:right-24 2xl:right-32 z-20 pointer-events-auto origin-bottom-right transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
+        className="hidden lg:block absolute bottom-[6%] sm:bottom-[10%] md:bottom-[12%] lg:bottom-[14%] right-2 sm:right-6 md:right-10 lg:right-14 xl:right-24 2xl:right-32 z-20 pointer-events-auto origin-bottom-right transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
       >
         <div className="flex flex-col items-center animate-float-cd">
           <HolographicCD size={260} tiltAngle={16} interactive={true} />
@@ -58,10 +58,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
       </div>
 
       {/* Main Content Hub */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center w-full px-2">
         
         {/* Pixel Subline: "UNDER 18 WEB DEV HACKATHON" */}
-        <div className="font-pixel text-xs sm:text-sm md:text-base text-[#4dd8ff] tracking-[0.25em] sm:tracking-[0.35em] uppercase mb-2 sm:mb-3 cyan-glow drop-shadow">
+        <div className="font-pixel text-xs sm:text-sm md:text-base text-[#4dd8ff] tracking-[0.2em] sm:tracking-[0.35em] uppercase mb-2 sm:mb-3 cyan-glow drop-shadow">
           [ UNDER 18 WEB DEV HACKATHON ]
         </div>
 
@@ -70,14 +70,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
           {/* Subtle CRT Glow behind */}
           <div className="absolute -inset-4 bg-gradient-to-r from-[#ffb800]/20 via-[#ffd700]/35 to-[#ffb800]/20 blur-2xl rounded-full opacity-70 pointer-events-none" />
 
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.9] gold-text-stroke uppercase select-none">
+          <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.9] gold-text-stroke uppercase select-none">
             HACKER
             <br />
             DIARIES
           </h1>
 
           {/* Decorative glossy cyber dolphin sticker positioned playfully on top right */}
-          <div className="absolute -top-10 -right-4 sm:-top-12 sm:-right-12 z-20 pointer-events-auto">
+          <div className="hidden sm:block absolute -top-10 -right-4 sm:-top-12 sm:-right-12 z-20 pointer-events-auto">
             <Y2KDolphin size={120} />
           </div>
 

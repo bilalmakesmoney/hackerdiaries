@@ -19,7 +19,6 @@ import { retroAudio } from './utils/audio';
 export default function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
-  const [showScanlines, setShowScanlines] = useState(true);
 
   const handleOpenRegister = () => {
     retroAudio.playClick();
@@ -45,25 +44,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a]">
-      {/* Optional CRT Scanlines Overlay */}
-      {showScanlines && (
-        <div className="fixed inset-0 scanlines z-30 pointer-events-none opacity-40" />
-      )}
+      {/* Subtle Scanlines Overlay */}
+      <div className="fixed inset-0 scanlines z-30 pointer-events-none opacity-40" />
 
-      {/* Floating Scanline Toggle Easter Egg in top right */}
-      <div className="fixed top-3 right-3 z-40 select-none">
-        <button
-          type="button"
-          onClick={() => {
-            retroAudio.playClick();
-            setShowScanlines(!showScanlines);
-          }}
-          className="px-2 py-1 bg-[#09183d]/80 hover:bg-[#0f2868] border border-[#1b3a8a] text-[9px] font-pixel text-[#8fa8db] hover:text-[#ffd700] rounded shadow-md backdrop-blur-xs transition-colors cursor-pointer"
-          title="Toggle CRT Screen Scanlines"
-        >
-          CRT: {showScanlines ? 'ON' : 'OFF'}
-        </button>
-      </div>
+
 
       {/* Main Single-Page Promotional Site Sections */}
       <main className="relative">

@@ -1,48 +1,6 @@
 import React from 'react';
-import { Globe, Gamepad2, ArrowRight, Code2, Sparkles, Check } from 'lucide-react';
+import { Globe, Gamepad2, ArrowRight, Lock, Code2, Sparkles, CheckCircle2 } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
-
-interface Track {
-  id: string;
-  code: string;
-  category: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  highlights: string[];
-  icon: React.ReactNode;
-}
-
-const tracks: Track[] = [
-  {
-    id: 'web-dev',
-    code: 'TRACK_01.EXE',
-    category: 'WEB & FULL-STACK',
-    title: 'Web Development',
-    subtitle: 'Modern Web Apps, AI Tools & Creative Portals',
-    description: 'Build fast, high-impact web applications, AI-assisted browser utilities, real-time collaboration platforms, and creative web tools. Ship live within 12 hours.',
-    highlights: [
-      'Full-stack Web Applications & Micro-SaaS',
-      'Interactive AI Web Agents & Utilities',
-      'Creative Canvas, Audio & Visual Web Toys',
-    ],
-    icon: <Globe className="w-5 h-5 text-[#4dd8ff]" />,
-  },
-  {
-    id: 'game-dev',
-    code: 'TRACK_02.EXE',
-    category: 'GAMES & WEBGL',
-    title: 'Game Development',
-    subtitle: 'Browser Games, 2D Platformers & Arcade Netplay',
-    description: 'Channel the golden era of Flash, Newgrounds, and indie game jams. Build playable browser games, 2D pixel platformers, physics sandboxes, and multiplayer arenas.',
-    highlights: [
-      'Playable 2D & WebGL 3D Browser Games',
-      'Physics Sandboxes & Action Platformers',
-      'Multiplayer Retro Duels & Mini-Jam Games',
-    ],
-    icon: <Gamepad2 className="w-5 h-5 text-[#ffd700]" />,
-  },
-];
 
 export const TracksSection: React.FC<{ onSelectTrack: (track: string) => void }> = ({ onSelectTrack }) => {
   return (
@@ -59,79 +17,163 @@ export const TracksSection: React.FC<{ onSelectTrack: (track: string) => void }>
           CHOOSE YOUR <span className="gold-text-stroke text-[#ffc83b]">TRACK</span>
         </h2>
         <p className="mt-3 text-sm sm:text-base text-[#adc2ea] font-sans max-w-xl mx-auto leading-relaxed">
-          Pick your focus area for the 12-hour sprint. Ship a standout web app or build an addictive playable game.
+          Pick your focus area for the 12-hour sprint. Build a standout web application or ship a playable indie game.
         </p>
       </div>
 
-      {/* 2 Clean & Spacious Track Cards */}
+      {/* 2 Symmetrical Track Cards matching About/Sponsors card styling */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        {tracks.map((track) => (
-          <div
-            key={track.id}
-            className="group rounded-2xl shadow-xl border-2 border-[#1e4499] hover:border-[#ffd700] bg-gradient-to-b from-[#0e245a]/95 via-[#08173d]/95 to-[#040e26]/95 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between overflow-hidden"
-            onMouseEnter={() => retroAudio.playClick()}
-          >
-            {/* Top Windows XP Classic Titlebar */}
-            <div className="xp-titlebar px-4 py-2 flex items-center justify-between border-b border-[#04338c] select-none">
-              <div className="flex items-center gap-2.5">
-                <span className="p-1 rounded bg-[#071330]/80 border border-[#4dd8ff]/30">
-                  {track.icon}
-                </span>
-                <span className="font-pixel text-xs sm:text-sm text-white tracking-wider font-bold">
-                  {track.code}
-                </span>
+        {/* Track 1: Web Development */}
+        <div
+          className="rounded-2xl p-6 sm:p-8 bg-gradient-to-b from-[#0e245a]/95 via-[#08173d]/95 to-[#040e26]/95 border-2 border-[#1e4499] hover:border-[#4dd8ff]/80 shadow-[0_15px_45px_rgba(0,0,0,0.8)] transition-all group flex flex-col justify-between"
+          onMouseEnter={() => retroAudio.playClick()}
+        >
+          <div>
+            {/* Card Header Icon & Tag */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 rounded-xl bg-[#0c1f52] border border-[#1e3a8a] flex items-center justify-center text-[#4dd8ff] group-hover:scale-105 transition-transform shadow-md">
+                <Globe className="w-6 h-6" />
               </div>
-              <span className="font-mono text-[10px] text-[#ffd700] uppercase font-bold">
-                [{track.category}]
+              <span className="font-pixel text-[10px] text-[#4dd8ff] uppercase tracking-wider px-2.5 py-1 rounded bg-[#071330] border border-[#1e3a8a]">
+                TRACK 01 // WEB
               </span>
             </div>
 
-            {/* Card Body */}
-            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
-              <div className="space-y-2.5">
-                <h3 className="font-display text-2xl sm:text-3xl text-[#f5f0dc] font-black group-hover:text-[#ffd700] transition-colors">
-                  {track.title}
-                </h3>
-                <div className="font-mono text-xs text-[#4dd8ff] font-bold">
-                  {track.subtitle}
-                </div>
-                <p className="text-xs sm:text-sm text-[#c7d9fa] leading-relaxed font-sans pt-1">
-                  {track.description}
-                </p>
-              </div>
+            <div className="font-pixel text-[9px] text-[#ffd700] uppercase tracking-wider mb-1">
+              FULL-STACK &amp; WEB APPS
+            </div>
 
-              {/* Clean Highlight Bullets */}
-              <div className="space-y-2 pt-4 border-t border-[#1e3a8a]/70">
-                <div className="text-[10px] font-pixel text-[#8fa8db] uppercase tracking-wider">
-                  WHAT YOU CAN BUILD:
-                </div>
-                <div className="space-y-1.5 font-sans text-xs text-[#c5d8ff]">
-                  {track.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <span className="text-[#4dd8ff] font-bold mt-0.5">•</span>
-                      <span>{h}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-black text-[#f5f0dc] group-hover:text-[#ffd700] transition-colors mb-2 leading-snug tracking-wider">
+              Web Development
+            </h3>
 
-              {/* Action Button */}
-              <div className="pt-4 border-t border-[#1e3a8a]/70 flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => {
-                    retroAudio.playClick();
-                    onSelectTrack(track.title);
-                  }}
-                  className="w-full y2k-btn-gold py-2.5 rounded-md font-pixel text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer font-bold shadow-md hover:scale-[1.02] transition-transform"
-                >
-                  <span>SELECT {track.title.toUpperCase()}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#4a2600]" />
-                </button>
+            <p className="text-xs sm:text-sm text-[#adc2ea] leading-relaxed font-sans mb-6">
+              Build fast, high-impact web applications, browser utilities, real-time collaboration platforms, and creative web tools. Ship live within 12 hours.
+            </p>
+
+            {/* Feature Bullets */}
+            <div className="space-y-2.5 pt-4 border-t border-[#1e3a8a]/70">
+              <div className="text-[10px] font-pixel text-[#8fa8db] uppercase tracking-wider">
+                WHAT YOU CAN BUILD:
+              </div>
+              <div className="space-y-2 text-xs text-[#c7d9fa] font-sans">
+                <div className="flex items-start gap-2">
+                  <span className="text-[#4dd8ff] font-bold mt-0.5">•</span>
+                  <span>Full-Stack Web Apps &amp; Micro-SaaS tools</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#4dd8ff] font-bold mt-0.5">•</span>
+                  <span>Interactive AI Web Agents &amp; Productivity Portals</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#4dd8ff] font-bold mt-0.5">•</span>
+                  <span>Creative Canvas, Audio &amp; Visual Web Experiments</span>
+                </div>
               </div>
             </div>
           </div>
-        ))}
+
+          {/* Action Button */}
+          <div className="pt-6 mt-6 border-t border-[#1e3a8a]/70">
+            <button
+              type="button"
+              onClick={() => {
+                retroAudio.playClick();
+                onSelectTrack('Web Development');
+              }}
+              className="w-full y2k-btn-gold py-3 rounded-md font-pixel text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer font-bold shadow-lg hover:scale-[1.02] transition-transform"
+            >
+              <span>SELECT WEB DEV TRACK</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#4a2600]" />
+            </button>
+          </div>
+        </div>
+
+        {/* Track 2: Game Development */}
+        <div
+          className="rounded-2xl p-6 sm:p-8 bg-gradient-to-b from-[#0e245a]/95 via-[#08173d]/95 to-[#040e26]/95 border-2 border-[#1e4499] hover:border-[#ffd700]/80 shadow-[0_15px_45px_rgba(0,0,0,0.8)] transition-all group flex flex-col justify-between"
+          onMouseEnter={() => retroAudio.playClick()}
+        >
+          <div>
+            {/* Card Header Icon & Tag */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 rounded-xl bg-[#0c1f52] border border-[#1e3a8a] flex items-center justify-center text-[#ffd700] group-hover:scale-105 transition-transform shadow-md">
+                <Gamepad2 className="w-6 h-6" />
+              </div>
+              <span className="font-pixel text-[10px] text-[#ffd700] uppercase tracking-wider px-2.5 py-1 rounded bg-[#071330] border border-[#1e3a8a]">
+                TRACK 02 // GAMES
+              </span>
+            </div>
+
+            <div className="font-pixel text-[9px] text-[#ffd700] uppercase tracking-wider mb-1">
+              GAMES &amp; WEBGL
+            </div>
+
+            <h3 className="font-display text-2xl sm:text-3xl font-black text-[#f5f0dc] group-hover:text-[#ffd700] transition-colors mb-2 leading-snug tracking-wider">
+              Game Development
+            </h3>
+
+            <p className="text-xs sm:text-sm text-[#adc2ea] leading-relaxed font-sans mb-6">
+              Channel the golden era of indie game jams and browser games. Build playable 2D pixel platformers, physics sandboxes, and multiplayer mini-duels from scratch.
+            </p>
+
+            {/* Feature Bullets */}
+            <div className="space-y-2.5 pt-4 border-t border-[#1e3a8a]/70">
+              <div className="text-[10px] font-pixel text-[#8fa8db] uppercase tracking-wider">
+                WHAT YOU CAN BUILD:
+              </div>
+              <div className="space-y-2 text-xs text-[#c7d9fa] font-sans">
+                <div className="flex items-start gap-2">
+                  <span className="text-[#ffd700] font-bold mt-0.5">•</span>
+                  <span>Playable 2D &amp; WebGL 3D Browser Games</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#ffd700] font-bold mt-0.5">•</span>
+                  <span>Physics Sandboxes &amp; Action Platformers</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#ffd700] font-bold mt-0.5">•</span>
+                  <span>Multiplayer Retro Duels &amp; Arcade Netplay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Button */}
+          <div className="pt-6 mt-6 border-t border-[#1e3a8a]/70">
+            <button
+              type="button"
+              onClick={() => {
+                retroAudio.playClick();
+                onSelectTrack('Game Development');
+              }}
+              className="w-full y2k-btn-gold py-3 rounded-md font-pixel text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer font-bold shadow-lg hover:scale-[1.02] transition-transform"
+            >
+              <span>SELECT GAME DEV TRACK</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#4a2600]" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Theme To Be Revealed Strip matching About bottom banner styling */}
+      <div className="mt-8 p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#0d2258] via-[#09173d] to-[#0d2258] border-2 border-[#1e4499] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+        <div className="flex items-center gap-3.5 text-center sm:text-left">
+          <div className="w-10 h-10 rounded-lg bg-[#0c1f52] border border-[#ffd700]/60 flex items-center justify-center text-[#ffd700] shrink-0 shadow-md">
+            <Lock className="w-5 h-5 animate-pulse" />
+          </div>
+          <div className="space-y-1">
+            <div className="font-display font-bold text-base text-[#f5f0dc] flex flex-wrap items-center justify-center sm:justify-start gap-2">
+              <span>Theme To Be Revealed Live at Kickoff</span>
+              <span className="font-pixel text-[10px] text-[#ffd700] px-2 py-0.5 rounded bg-[#071330] border border-[#ffd700]/40">
+                15 NOV 2026 • 10:00 AM
+              </span>
+            </div>
+            <div className="text-xs text-[#8fa8db] font-sans">
+              Challenge statements and creative constraints unlock on-site to ensure a 100% fair 12-hour building playing field.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

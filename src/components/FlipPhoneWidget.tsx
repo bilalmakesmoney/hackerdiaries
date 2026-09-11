@@ -14,13 +14,13 @@ export const FlipPhoneWidget: React.FC<{ className?: string }> = ({ className = 
     const msgs: Record<string, string> = {
       '1': 'DELHI NCR 15 NOV 26',
       '2': 'STRICTLY UNDER-18',
-      '3': 'FREE PIZZA & RED BULL',
+      '3': 'FREE PIZZA',
       '4': 'TRACK: WEB DEV',
       '5': 'TRACK: GAME DEV',
       '6': '12 HOURS SPRINT',
       '7': 'PRIZES: COMING SOON',
       '8': 'WHATSAPP: ONLINE',
-      '9': 'TEAM SIZE: 1 TO 4',
+      '9': 'TEAM SIZE: 1 TO 3',
       '0': 'SYSTEM BOOT 2006...',
     };
     if (msgs[num]) {

@@ -59,7 +59,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
       {/* Start Menu Dropdown */}
       {isStartOpen && (
         <div 
-          className="fixed bottom-10 left-1 z-50 w-72 bg-[#ece9d8] text-[#111111] rounded-t-md shadow-[0_15px_40px_rgba(0,0,0,0.85)] border-2 border-[#0055ea] overflow-hidden font-sans select-none animate-in fade-in slide-in-from-bottom-2 duration-150"
+          className="fixed bottom-10 left-1 z-50 w-72 max-w-[calc(100vw-8px)] bg-[#ece9d8] text-[#111111] rounded-t-md shadow-[0_15px_40px_rgba(0,0,0,0.85)] border-2 border-[#0055ea] overflow-hidden font-sans select-none animate-in fade-in slide-in-from-bottom-2 duration-150"
         >
           {/* Start Menu Header */}
           <div className="xp-titlebar px-3 py-2 flex items-center gap-2.5">

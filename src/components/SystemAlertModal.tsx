@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AlertTriangle, Info, Check, X, Send, Sparkles } from 'lucide-react';
+import { AlertTriangle, Check, X, Send } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
 import confetti from 'canvas-confetti';
 
@@ -20,7 +20,6 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
     companyOrName: '',
     email: '',
     message: '',
-    budgetOrTier: 'Gold ($1,500 / ₹1,25,000)',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -50,7 +49,7 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs select-none">
-      <div className="w-full max-w-md bg-[#ece9d8] text-[#111111] rounded-t-md shadow-[0_15px_40px_rgba(0,0,0,0.8)] border-2 border-[#0055ea] overflow-hidden font-sans">
+      <div className="w-full max-w-md max-h-[92vh] overflow-y-auto bg-[#ece9d8] text-[#111111] rounded-t-md shadow-[0_15px_40px_rgba(0,0,0,0.8)] border-2 border-[#0055ea] font-sans">
         {/* Classic Windows XP Blue Dialog Header */}
         <div className="xp-titlebar px-3 py-1.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -88,13 +87,13 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
                 {type === 'sponsor' ? (
                   <>
                     <p className="font-bold text-[#1a2d54] text-sm leading-tight">
-                      Attention: Partner with 300+ under-18 software architects, hardware builders, & teen founders.
+                      Partner with 100+ high-agency under-18 builders & teen coders in Delhi NCR.
                     </p>
                     <p className="text-[#444444] text-[11px] leading-relaxed">
-                      Sponsorship tiers are currently opening for Title, Track, API, Food & Hardware. Connect directly with high-agency high schoolers in Delhi NCR on 15 Nov 2026.
+                      Sponsorship opportunities are currently open for Hacker Diaries 2026. Send us an inquiry to collaborate.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-2 mt-2">
+                    <form onSubmit={handleSubmit} className="space-y-2.5 mt-2">
                       <div>
                         <label className="block text-[11px] font-bold text-[#222] mb-0.5">
                           Organization / Sponsor Name:
@@ -102,10 +101,10 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
                         <input
                           required
                           type="text"
-                          placeholder="e.g. Acme Cloud / Venture Guild"
+                          placeholder="e.g. Acme Cloud / DevTools Inc."
                           value={formData.companyOrName}
                           onChange={(e) => setFormData({ ...formData, companyOrName: e.target.value })}
-                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none focus:ring-1 focus:ring-[#0055ea]"
+                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none focus:ring-1 focus:ring-[#0055ea] rounded-[2px]"
                         />
                       </div>
 
@@ -119,25 +118,21 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
                           placeholder="partner@organization.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none focus:ring-1 focus:ring-[#0055ea]"
+                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none focus:ring-1 focus:ring-[#0055ea] rounded-[2px]"
                         />
                       </div>
 
                       <div>
                         <label className="block text-[11px] font-bold text-[#222] mb-0.5">
-                          Tier / Interest:
+                          Message / Note (Optional):
                         </label>
-                        <select
-                          value={formData.budgetOrTier}
-                          onChange={(e) => setFormData({ ...formData, budgetOrTier: e.target.value })}
-                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none"
-                        >
-                          <option>Title Sponsor (Keynote + Grand Prize)</option>
-                          <option>Track Sponsor (AI / Web3 / Hardware)</option>
-                          <option>Food & Midnight Pizza Patron</option>
-                          <option>Community & Media Partner</option>
-                          <option>Custom Swag / CD-R Mixtape Sponsor</option>
-                        </select>
+                        <textarea
+                          rows={2}
+                          placeholder="How would you like to collaborate with teen builders?"
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black focus:outline-none focus:ring-1 focus:ring-[#0055ea] rounded-[2px] resize-none"
+                        />
                       </div>
 
                       <div className="pt-2 flex justify-end gap-2">
@@ -153,7 +148,7 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
                         </button>
                         <button
                           type="submit"
-                          className="px-4 py-1 bg-[#0055ea] hover:bg-[#1a68ff] text-white text-xs font-bold rounded-[3px] border border-[#043fa6] shadow-sm flex items-center gap-1 active:translate-y-[1px]"
+                          className="px-4 py-1 bg-[#0055ea] hover:bg-[#1a68ff] text-white text-xs font-bold rounded-[3px] border border-[#043fa6] shadow-sm flex items-center gap-1.5 active:translate-y-[1px] cursor-pointer"
                         >
                           <Send className="w-3 h-3" />
                           Send Inquiry

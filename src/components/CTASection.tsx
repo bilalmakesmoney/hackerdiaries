@@ -59,11 +59,11 @@ export const CTASection: React.FC<CTASectionProps> = ({ onRegisterClick }) => {
               retroAudio.playClick();
               onRegisterClick();
             }}
-            className="y2k-btn-gold px-9 py-4 rounded-md text-sm sm:text-base font-pixel tracking-wider font-bold uppercase flex items-center gap-3 cursor-pointer shadow-2xl scale-105 hover:scale-110 transition-transform"
+            className="y2k-btn-gold px-6 sm:px-9 py-3.5 sm:py-4 rounded-md text-xs sm:text-base font-pixel tracking-wider font-bold uppercase flex items-center justify-center gap-2 sm:gap-3 cursor-pointer shadow-2xl hover:scale-105 transition-transform"
           >
-            <Sparkles className="w-5 h-5 text-[#4a2600]" />
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#4a2600]" />
             <span>REGISTER NOW — 100% FREE</span>
-            <ArrowRight className="w-5 h-5 text-[#4a2600]" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#4a2600]" />
           </button>
         </div>
 
