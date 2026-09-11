@@ -42,16 +42,13 @@ export const SponsorsSection: React.FC<{ onOpenSponsorModal: () => void }> = ({ 
       {/* Main Clean Showcase Card */}
       <div className="rounded-2xl border-2 border-[#1e4499] bg-gradient-to-b from-[#0e245a]/95 via-[#08173d]/95 to-[#040e26]/95 p-6 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.8)] space-y-8">
         {/* Status Callout Banner */}
-        <div className="p-4 rounded-xl bg-[#071330]/90 border border-[#ffd700]/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div className="p-4 rounded-xl bg-[#071330]/90 border border-[#ffd700]/40 flex items-center justify-center text-center">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ffd700] animate-pulse shadow-[0_0_8px_#ffd700]" />
             <span className="font-pixel text-xs sm:text-sm text-[#ffd700] uppercase tracking-wider">
               SPONSORSHIP APPLICATIONS OPEN FOR 15 NOV 2026
             </span>
           </div>
-          <span className="text-[11px] font-mono text-[#8fa8db]">
-            Title • Track • Tooling • Fuel Slots Available
-          </span>
         </div>
 
         {/* 3 Simple Perk Cards */}

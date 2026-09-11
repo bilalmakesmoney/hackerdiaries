@@ -163,11 +163,8 @@ export const TracksSection: React.FC<{ onSelectTrack: (track: string) => void }>
             <Lock className="w-5 h-5 animate-pulse" />
           </div>
           <div className="space-y-1">
-            <div className="font-display font-bold text-base text-[#f5f0dc] flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span>Theme To Be Revealed Live at Kickoff</span>
-              <span className="font-pixel text-[10px] text-[#ffd700] px-2 py-0.5 rounded bg-[#071330] border border-[#ffd700]/40">
-                15 NOV 2026 • 10:00 AM
-              </span>
+            <div className="font-display font-bold text-base text-[#f5f0dc]">
+              Theme To Be Revealed Live at Kickoff
             </div>
             <div className="text-xs text-[#8fa8db] font-sans">
               Challenge statements and creative constraints unlock on-site to ensure a 100% fair 12-hour building playing field.
