@@ -138,8 +138,8 @@ export const StarPerson: React.FC<{ className?: string; size?: number }> = ({
       <circle cx="59" cy="44" r="1.5" fill="#ffffff" />
 
       {/* Cheeks */}
-      <ellipse cx="33" cy="53" rx="3.5" ry="2" fill="#ff4d4d" opacity="0.6" />
-      <ellipse cx="67" cy="53" rx="3.5" ry="2" fill="#ff4d4d" opacity="0.6" />
+      <ellipse cx="33" cy="53" rx="3.5" ry="2" fill="#e68a00" opacity="0.6" />
+      <ellipse cx="67" cy="53" rx="3.5" ry="2" fill="#e68a00" opacity="0.6" />
 
       {/* Big Smile */}
       <path
@@ -167,11 +167,11 @@ export const RetroBadge: React.FC<{ text?: string; subtext?: string; className?:
   className = '',
 }) => (
   <div
-    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded bg-gradient-to-b from-[#1e3a8a] to-[#0a1638] border-2 border-[#ffb800] shadow-[0_0_12px_rgba(255,184,0,0.4)] ${className}`}
+    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded bg-gradient-to-b from-[#1e3a8a] to-[#0a1638] border-2 border-[#ffd700] shadow-[0_0_12px_rgba(255,215,0,0.35)] ${className}`}
   >
-    <div className="w-2.5 h-2.5 rounded-full bg-[#00ff66] shadow-[0_0_6px_#00ff66] animate-pulse" />
+    <div className="w-2.5 h-2.5 rounded-full bg-[#4dd8ff] shadow-[0_0_6px_#4dd8ff] animate-pulse" />
     <div className="text-left">
-      <div className="font-pixel text-[10px] text-[#ffb800] leading-none tracking-wider">{text}</div>
+      <div className="font-pixel text-[10px] text-[#ffd700] leading-none tracking-wider">{text}</div>
       <div className="font-pixel text-[8px] text-[#4dd8ff] tracking-widest uppercase mt-0.5">{subtext}</div>
     </div>
   </div>

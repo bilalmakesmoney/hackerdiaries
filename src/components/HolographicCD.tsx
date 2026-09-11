@@ -63,21 +63,17 @@ export const HolographicCD: React.FC<HolographicCDProps> = ({
             boxShadow: 'inset 0 0 10px rgba(255,255,255,0.8), 0 12px 30px rgba(0,0,0,0.7)',
           }}
         >
-          {/* Holographic Iridescent Sheen Streaks (Conic rainbow simulation) */}
+          {/* Holographic Iridescent Sheen Streaks (Unified Cyber Gold & Cyan) */}
           <div
-            className="absolute inset-0 rounded-full mix-blend-color-dodge opacity-80 pointer-events-none"
+            className="absolute inset-0 rounded-full mix-blend-color-dodge opacity-60 pointer-events-none"
             style={{
               background: `conic-gradient(
                 from 0deg,
-                rgba(255, 0, 128, 0.45) 0deg,
-                rgba(0, 230, 255, 0.5) 45deg,
-                rgba(255, 220, 0, 0.45) 90deg,
-                rgba(0, 255, 136, 0.4) 135deg,
-                rgba(255, 0, 128, 0.45) 180deg,
-                rgba(0, 230, 255, 0.5) 225deg,
-                rgba(255, 220, 0, 0.45) 270deg,
-                rgba(0, 255, 136, 0.4) 315deg,
-                rgba(255, 0, 128, 0.45) 360deg
+                rgba(77, 216, 255, 0.45) 0deg,
+                rgba(255, 215, 0, 0.4) 90deg,
+                rgba(77, 216, 255, 0.45) 180deg,
+                rgba(255, 215, 0, 0.4) 270deg,
+                rgba(77, 216, 255, 0.45) 360deg
               )`,
             }}
           />

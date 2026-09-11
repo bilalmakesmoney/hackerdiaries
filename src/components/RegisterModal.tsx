@@ -15,8 +15,8 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
     age: '16',
     schoolCity: '',
     discordOrInsta: '',
-    track: 'AI & Autonomous Agents',
-    techStack: 'Python / React / Hardware tinkering',
+    track: 'Web Development & Apps',
+    techStack: 'React / Next.js / TypeScript',
     needsTeam: 'no',
   });
   const [ticketNumber, setTicketNumber] = useState('');
@@ -93,14 +93,14 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
               </p>
               <div className="pt-2">
                 <div className="text-[9px] text-[#8fa8db] font-mono">ADMISSION:</div>
-                <div className="text-xs font-pixel text-[#00ff66]">100% FREE</div>
+                <div className="text-xs font-pixel text-[#ffd700]">100% FREE</div>
               </div>
             </div>
 
             <div className="text-[10px] text-[#8fa8db] font-mono border-t border-[#1e3a8a] pt-3">
               <div>• Free Swag & Mixtape</div>
-              <div>• Free Pizza & Drinks</div>
-              <div>• ₹1,50,000+ Prizes</div>
+              <div>• Free Meals & Fuel</div>
+              <div>• Exclusive Winner Prizes</div>
             </div>
           </div>
 
@@ -189,10 +189,8 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                     onChange={(e) => setFormData({ ...formData, track: e.target.value })}
                     className="w-full px-2 py-1 bg-white border border-[#7f9db9] shadow-inner text-xs text-black"
                   >
-                    <option>AI & Autonomous Agents ("Neural Nets on Dial-up")</option>
-                    <option>Web3 & Peer-to-Peer ("Limewire Protocol Revamped")</option>
-                    <option>Open Source & Hardware ("Soldering & Circuit Boards")</option>
-                    <option>Creative Media & Retro Games ("Flash Revival")</option>
+                    <option>Web Development</option>
+                    <option>Game Development</option>
                   </select>
                 </div>
 
@@ -249,8 +247,8 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
               /* Success / Ticket Confirmation Screen */
               <div className="space-y-4 py-2">
                 <div className="text-center space-y-1">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-[#e6f7eb] border-2 border-[#52c41a] flex items-center justify-center">
-                    <Check className="w-6 h-6 text-[#389e0d]" />
+                  <div className="w-12 h-12 mx-auto rounded-full bg-[#0d2159] border-2 border-[#4dd8ff] flex items-center justify-center shadow-md">
+                    <Check className="w-6 h-6 text-[#4dd8ff]" />
                   </div>
                   <h3 className="font-display font-black text-base text-[#0a1a4a]">
                     HACKER ACCESS GRANTED!
@@ -264,7 +262,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <div className="bg-[#0c1f52] p-3 rounded border-2 border-[#ffb800] text-[#f5f0dc] shadow-inner font-mono text-xs space-y-2">
                   <div className="flex justify-between items-center text-[10px] text-[#8fa8db] border-b border-[#1b3a8a] pb-1">
                     <span>PRODUCT KEY // DEL-NCR</span>
-                    <span className="text-[#00ff66] font-pixel">CONFIRMED</span>
+                    <span className="text-[#ffd700] font-pixel">CONFIRMED</span>
                   </div>
                   <div className="font-arcade text-center py-2 text-sm sm:text-base text-[#ffd700] tracking-wider bg-[#06102b] rounded border border-[#1b3a8a]">
                     {ticketNumber}
@@ -288,7 +286,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                     href="https://chat.whatsapp.com/"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 py-1.5 bg-[#00a854] hover:bg-[#00c060] text-white text-xs font-bold rounded border border-[#006030] flex items-center justify-center gap-1.5 text-center"
+                    className="flex-1 py-1.5 bg-[#0055ea] hover:bg-[#1a68ff] text-[#ffd700] text-xs font-bold rounded border border-[#043fa6] flex items-center justify-center gap-1.5 text-center"
                   >
                     Join WhatsApp HQ
                   </a>

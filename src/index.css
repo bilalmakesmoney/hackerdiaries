@@ -176,6 +176,47 @@
   animation: iridescent-spin 5s linear infinite;
 }
 
+/* Y2K Organic Floating Animations for Asymmetrical Placement */
+@keyframes float-y2k-digicam {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(-12deg);
+  }
+  33% {
+    transform: translateY(-16px) translateX(8px) rotate(-8deg);
+  }
+  66% {
+    transform: translateY(-6px) translateX(-6px) rotate(-16deg);
+  }
+}
+
+@keyframes float-y2k-cd {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(14deg);
+  }
+  33% {
+    transform: translateY(-18px) translateX(-8px) rotate(18deg);
+  }
+  66% {
+    transform: translateY(-8px) translateX(6px) rotate(10deg);
+  }
+}
+
+.animate-float-digicam {
+  animation: float-y2k-digicam 6.8s ease-in-out infinite;
+}
+
+.animate-float-cd {
+  animation: float-y2k-cd 7.6s ease-in-out infinite;
+}
+
+.animate-float-left {
+  animation: float-y2k-digicam 6.8s ease-in-out infinite;
+}
+
+.animate-float-right {
+  animation: float-y2k-cd 7.6s ease-in-out infinite;
+}
+
 /* Vertical Laser Beam */
 .laser-beam {
   background: radial-gradient(

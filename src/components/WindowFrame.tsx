@@ -37,7 +37,7 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
       case 'help':
         return <HelpCircle className="w-4 h-4 text-[#ffd700]" />;
       case 'drive':
-        return <HardDrive className="w-4 h-4 text-[#73d13d]" />;
+        return <HardDrive className="w-4 h-4 text-[#4dd8ff]" />;
       default:
         return <FileText className="w-4 h-4 text-[#ffffff]" />;
     }
@@ -129,7 +129,7 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
           <span className="hover:text-white cursor-pointer hover:underline"><u>B</u>uild</span>
           <span className="hover:text-white cursor-pointer hover:underline"><u>H</u>elp</span>
           <span className="ml-auto text-[10px] text-[#ffc83b] flex items-center gap-1 font-pixel">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff66]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4dd8ff]" />
             ONLINE
           </span>
         </div>
@@ -153,7 +153,7 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
       {!isMinimized && (
         <div className="bg-[#071330] border-t border-[#132c6b] px-3 py-1 flex items-center justify-between text-[11px] font-mono text-[#8ca3d4] select-none">
           <div className="flex items-center gap-2 truncate">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#00ff66] flex-shrink-0" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#4dd8ff] flex-shrink-0" />
             <span className="truncate">{statusBarText}</span>
           </div>
           <div className="flex items-center gap-3 pl-2 flex-shrink-0 text-[10px]">

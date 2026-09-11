@@ -12,7 +12,6 @@ import { SponsorsSection } from './components/SponsorsSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
-import { Taskbar } from './components/Taskbar';
 import { RegisterModal } from './components/RegisterModal';
 import { SystemAlertModal } from './components/SystemAlertModal';
 import { retroAudio } from './utils/audio';
@@ -45,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a] pb-12">
+    <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a]">
       {/* Optional CRT Scanlines Overlay */}
       {showScanlines && (
         <div className="fixed inset-0 scanlines z-30 pointer-events-none opacity-40" />
@@ -95,12 +94,6 @@ export default function App() {
 
       {/* 8. FOOTER */}
       <Footer />
-
-      {/* Persistent Retro Desktop Taskbar (Windows XP style) */}
-      <Taskbar
-        onOpenRegister={handleOpenRegister}
-        onOpenSponsor={handleOpenSponsor}
-      />
 
       {/* Interactive Modals */}
       <RegisterModal

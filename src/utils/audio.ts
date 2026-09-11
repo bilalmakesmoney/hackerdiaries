@@ -98,6 +98,54 @@ class RetroAudioManager {
     } catch {}
   }
 
+  public playShutter() {
+    if (this.isMuted) return;
+    try {
+      const ctx = this.getContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      // Part 1: Quick mechanical aperture click
+      const osc1 = ctx.createOscillator();
+      const gain1 = ctx.createGain();
+      osc1.type = 'square';
+      osc1.frequency.setValueAtTime(2400, now);
+      osc1.frequency.exponentialRampToValueAtTime(400, now + 0.025);
+      gain1.gain.setValueAtTime(0.25, now);
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+      osc1.connect(gain1);
+      gain1.connect(ctx.destination);
+      osc1.start(now);
+      osc1.stop(now + 0.025);
+
+      // Part 2: Main shutter release slap (50ms later)
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = 'triangle';
+      osc2.frequency.setValueAtTime(1600, now + 0.045);
+      osc2.frequency.exponentialRampToValueAtTime(150, now + 0.09);
+      gain2.gain.setValueAtTime(0.3, now + 0.045);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(now + 0.045);
+      osc2.stop(now + 0.09);
+
+      // Part 3: Film/digital motor advance whine
+      const osc3 = ctx.createOscillator();
+      const gain3 = ctx.createGain();
+      osc3.type = 'sawtooth';
+      osc3.frequency.setValueAtTime(350, now + 0.095);
+      osc3.frequency.linearRampToValueAtTime(550, now + 0.16);
+      gain3.gain.setValueAtTime(0.08, now + 0.095);
+      gain3.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      osc3.connect(gain3);
+      gain3.connect(ctx.destination);
+      osc3.start(now + 0.095);
+      osc3.stop(now + 0.16);
+    } catch {}
+  }
+
   public toggleBgm(onStateChange?: (playing: boolean) => void) {
     if (this.isBgmPlaying) {
       this.stopBgm();

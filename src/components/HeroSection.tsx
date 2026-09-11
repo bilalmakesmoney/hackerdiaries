@@ -1,7 +1,8 @@
 import React from 'react';
 import { HolographicCD } from './HolographicCD';
-import { Y2KDolphin, StarPerson, RetroBadge } from './Y2KStickers';
-import { Sparkles, ArrowRight, Disc, MapPin, Calendar, Users, Zap } from 'lucide-react';
+import { RetroDigicam } from './RetroDigicam';
+import { Y2KDolphin, StarPerson } from './Y2KStickers';
+import { Sparkles, ArrowRight, Disc, MapPin, Calendar, Camera } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
 
 interface HeroSectionProps {
@@ -30,26 +31,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
         }}
       />
 
-      {/* Top Retro System Notification / Ticker */}
-      <div className="relative z-10 mb-4 sm:mb-6 animate-pulse">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0c1f52]/90 border border-[#4dd8ff]/50 shadow-[0_0_15px_rgba(77,216,255,0.3)]">
-          <span className="w-2 h-2 rounded-full bg-[#00ff66] shadow-[0_0_6px_#00ff66]" />
-          <span className="font-pixel text-[9px] sm:text-[10px] text-[#4dd8ff] tracking-widest uppercase">
-            REGISTRATIONS OPEN • DELHI NCR • NOVEMBER 2026
-          </span>
+      {/* Organic Floating Retro Digicam (Upper-Left Zone) */}
+      <div 
+        className="absolute top-[8%] sm:top-[12%] md:top-[15%] lg:top-[18%] left-2 sm:left-6 md:left-10 lg:left-14 xl:left-24 2xl:left-32 z-20 pointer-events-auto origin-top-left transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
+      >
+        <div className="flex flex-col items-center animate-float-digicam">
+          <RetroDigicam size={260} tiltAngle={-16} interactive={true} />
+          <div className="mt-2.5 font-mono text-[9px] sm:text-[10px] text-[#8fa8db] flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#09183d]/85 border border-[#4dd8ff]/40 backdrop-blur-sm shadow-[0_0_15px_rgba(77,216,255,0.25)]">
+            <Camera className="w-3 h-3 text-[#4dd8ff]" />
+            <span>CAM_01: DELHI_2006.RAW</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Organic Floating Holographic CD (Lower-Right Zone) */}
+      <div 
+        className="absolute bottom-[6%] sm:bottom-[10%] md:bottom-[12%] lg:bottom-[14%] right-2 sm:right-6 md:right-10 lg:right-14 xl:right-24 2xl:right-32 z-20 pointer-events-auto origin-bottom-right transition-transform duration-300 scale-[0.65] sm:scale-75 md:scale-85 lg:scale-95 xl:scale-100"
+      >
+        <div className="flex flex-col items-center animate-float-cd">
+          <HolographicCD size={260} tiltAngle={16} interactive={true} />
+          <div className="mt-2.5 font-mono text-[9px] sm:text-[10px] text-[#8fa8db] flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#09183d]/85 border border-[#ffd700]/40 backdrop-blur-sm shadow-[0_0_15px_rgba(255,215,0,0.25)]">
+            <span className="w-2 h-2 rounded-full bg-[#ffd700] animate-ping" />
+            <span>DISC_01: HACKER_DIARIES.ISO</span>
+          </div>
         </div>
       </div>
 
       {/* Main Content Hub */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
         
-        {/* Pixel Subline: "UNDER 18 HACKATHON" */}
+        {/* Pixel Subline: "UNDER 18 WEB DEV HACKATHON" */}
         <div className="font-pixel text-xs sm:text-sm md:text-base text-[#4dd8ff] tracking-[0.25em] sm:tracking-[0.35em] uppercase mb-2 sm:mb-3 cyan-glow drop-shadow">
-          [ UNDER 18 HACKATHON ]
+          [ UNDER 18 WEB DEV HACKATHON ]
         </div>
 
         {/* Display Headline: "HACKER DIARIES" */}
-        {/* Bold flared gothic-serif style, gold/yellow fill with thin dark outline & radiant glow */}
         <div className="relative my-2 sm:my-4 group">
           {/* Subtle CRT Glow behind */}
           <div className="absolute -inset-4 bg-gradient-to-r from-[#ffb800]/20 via-[#ffd700]/35 to-[#ffb800]/20 blur-2xl rounded-full opacity-70 pointer-events-none" />
@@ -71,27 +87,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
           </div>
         </div>
 
-        {/* Pixel-Font Date / Location Badge Row */}
+        {/* Sleek Pixel-Font Date & Venue Badges */}
         <div className="mt-3 sm:mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-pixel select-none">
-          <div className="px-3 py-1.5 rounded bg-[#09183d] border-2 border-[#f5c518] shadow-[0_0_12px_rgba(245,197,24,0.35)] flex items-center gap-2">
-            <Calendar className="w-3.5 h-3.5 text-[#ffb800]" />
+          {/* Date Badge */}
+          <div className="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#ffd700] shadow-[0_0_14px_rgba(255,215,0,0.3)] flex items-center gap-2 transition-transform hover:scale-105">
+            <Calendar className="w-3.5 h-3.5 text-[#ffd700]" />
             <span className="text-[#f5f0dc] tracking-wider">15 NOV 2026</span>
           </div>
 
-          <div className="px-3 py-1.5 rounded bg-[#09183d] border-2 border-[#4dd8ff] shadow-[0_0_12px_rgba(77,216,255,0.35)] flex items-center gap-2">
+          {/* Venue Badge */}
+          <div className="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-[#0d1f4d] to-[#081538] border-2 border-[#4dd8ff] shadow-[0_0_14px_rgba(77,216,255,0.3)] flex items-center gap-2 transition-transform hover:scale-105">
             <MapPin className="w-3.5 h-3.5 text-[#4dd8ff]" />
             <span className="text-[#f5f0dc] tracking-wider">DELHI NCR</span>
           </div>
-
-          <div className="px-3 py-1.5 rounded bg-[#09183d] border-2 border-[#00ff66] shadow-[0_0_12px_rgba(0,255,102,0.3)] flex items-center gap-2">
-            <Zap className="w-3.5 h-3.5 text-[#00ff66]" />
-            <span className="text-[#00ff66] tracking-wider">₹0 ADMISSION</span>
-          </div>
         </div>
 
-        {/* Narrative / Era Micro-Pitch */}
+        {/* Narrative / Era Micro-Pitch: 12-Hour Web Dev Hackathon */}
         <p className="mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-[#c7d9fa] leading-relaxed font-sans px-2">
-          The golden age of raw internet curiosity is back. 24 hours of pure hardware tinkering, software breaking, and teen founder energy. No corporate suits. No gatekeeping. Just 300+ under-18 builders in the capital.
+          The golden age of raw internet curiosity is back. 12 hours of pure web development, creative hacking, and teen builder energy. No corporate suits. No gatekeeping. Just 100+ under-18 web developers in the capital.
         </p>
 
         {/* Primary Chunky Y2K Action Buttons */}
@@ -122,17 +135,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
             <Disc className="w-4 h-4 text-[#0055ea]" />
             <span>EXPLORE SYSTEM LOGS</span>
           </button>
-        </div>
-
-        {/* Holographic CD Mixtape Showcase Element */}
-        <div className="mt-10 sm:mt-12 flex flex-col items-center">
-          <div className="relative">
-            <HolographicCD size={260} tiltAngle={14} interactive={true} />
-          </div>
-          <div className="mt-3 font-mono text-[11px] text-[#8fa8db] flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#ffd700] animate-ping" />
-            <span>DISC 01: HACKER_DIARIES_DELHI.ISO [CLICK DISC TO SPIN]</span>
-          </div>
         </div>
 
       </div>

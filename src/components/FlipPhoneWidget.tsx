@@ -15,10 +15,10 @@ export const FlipPhoneWidget: React.FC<{ className?: string }> = ({ className = 
       '1': 'DELHI NCR 15 NOV 26',
       '2': 'STRICTLY UNDER-18',
       '3': 'FREE PIZZA & RED BULL',
-      '4': 'TRACK: AI AGENTS',
-      '5': 'TRACK: WEB3 / P2P',
-      '6': 'TRACK: HARDWARE',
-      '7': 'INR 1,50,000+ POOL',
+      '4': 'TRACK: WEB DEV',
+      '5': 'TRACK: GAME DEV',
+      '6': '12 HOURS SPRINT',
+      '7': 'PRIZES: COMING SOON',
       '8': 'WHATSAPP: ONLINE',
       '9': 'TEAM SIZE: 1 TO 4',
       '0': 'SYSTEM BOOT 2006...',
@@ -83,17 +83,17 @@ export const FlipPhoneWidget: React.FC<{ className?: string }> = ({ className = 
           <button
             type="button"
             onClick={() => handleKeyPress('CALL')}
-            className="py-1 bg-gradient-to-b from-[#22c55e] to-[#15803d] text-white text-[9px] font-bold rounded-sm border-t border-white/40 border-b border-black flex items-center justify-center shadow"
+            className="py-1 bg-gradient-to-b from-[#1b5e20] to-[#0d3311] text-[#4dd8ff] text-[9px] font-bold rounded-sm border-t border-[#4dd8ff]/40 border-b border-black flex items-center justify-center shadow"
           >
             <PhoneCall className="w-2.5 h-2.5" />
           </button>
-          <div className="w-6 h-6 mx-auto rounded-full bg-[#3d5069] border border-[#7a9bb8] flex items-center justify-center text-[7px] text-white font-bold shadow-inner">
+          <div className="w-6 h-6 mx-auto rounded-full bg-[#3d5069] border border-[#7a9bb8] flex items-center justify-center text-[7px] text-[#ffd700] font-bold shadow-inner">
             OK
           </div>
           <button
             type="button"
             onClick={() => handleKeyPress('END')}
-            className="py-1 bg-gradient-to-b from-[#ef4444] to-[#b91c1c] text-white text-[9px] font-bold rounded-sm border-t border-white/40 border-b border-black flex items-center justify-center shadow"
+            className="py-1 bg-gradient-to-b from-[#5c1d1d] to-[#380e0e] text-[#f5f0dc] text-[9px] font-bold rounded-sm border-t border-white/30 border-b border-black flex items-center justify-center shadow"
           >
             END
           </button>
@@ -105,10 +105,10 @@ export const FlipPhoneWidget: React.FC<{ className?: string }> = ({ className = 
             { n: '1', sub: 'INFO' },
             { n: '2', sub: 'U18' },
             { n: '3', sub: 'FOOD' },
-            { n: '4', sub: 'AI' },
-            { n: '5', sub: 'WEB3' },
-            { n: '6', sub: 'HARDW' },
-            { n: '7', sub: 'CASH' },
+            { n: '4', sub: 'WEB' },
+            { n: '5', sub: 'GAME' },
+            { n: '6', sub: '12HR' },
+            { n: '7', sub: 'LOOT' },
             { n: '8', sub: 'WA' },
             { n: '9', sub: 'TEAM' },
             { n: '*', sub: 'KEY' },
@@ -138,7 +138,7 @@ export const FlipPhoneWidget: React.FC<{ className?: string }> = ({ className = 
             target="_blank"
             rel="noreferrer"
             onClick={() => retroAudio.playSuccess()}
-            className="block w-full py-1.5 bg-[#25d366] hover:bg-[#20bd5a] text-[#0a2012] font-pixel text-[9px] text-center rounded border-t border-white/50 border-b-2 border-[#126832] font-bold tracking-wider shadow"
+            className="block w-full py-1.5 bg-gradient-to-r from-[#0055ea] to-[#0f2868] hover:brightness-110 text-[#ffd700] font-pixel text-[9px] text-center rounded border-t border-white/40 border-b-2 border-black font-bold tracking-wider shadow"
           >
             [ OPEN WHATSAPP GROUP ]
           </a>

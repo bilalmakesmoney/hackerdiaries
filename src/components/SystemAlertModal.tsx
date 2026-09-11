@@ -185,10 +185,10 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
           ) : (
             /* Submission Confirmation Screen */
             <div className="py-4 text-center space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-full bg-[#e6f7eb] border-2 border-[#52c41a] flex items-center justify-center">
-                <Check className="w-6 h-6 text-[#389e0d]" />
+              <div className="w-12 h-12 mx-auto rounded-full bg-[#0d2159] border-2 border-[#4dd8ff] flex items-center justify-center shadow-md">
+                <Check className="w-6 h-6 text-[#4dd8ff]" />
               </div>
-              <h3 className="font-bold text-sm text-[#1b4317]">
+              <h3 className="font-bold text-sm text-[#0a1a4a]">
                 Dispatch Sent Successfully!
               </h3>
               <p className="text-xs text-[#444] px-4">
