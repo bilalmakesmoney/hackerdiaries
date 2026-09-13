@@ -34,7 +34,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onRegisterClick }) => {
         
         {/* Top Floating Badge */}
         <div className="mb-4">
-          <RetroBadge text="DELHI NCR • 15 NOV 2026" subtext="FINAL REGISTRATION PROTOCOL" />
+          <RetroBadge text="HACKER DIARIES 2026" subtext="REGISTRATION PROTOCOL" />
         </div>
 
         {/* Display Headline */}
@@ -117,7 +117,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onRegisterClick }) => {
                   <span>WHATSAPP COMMUNITY IN BIO</span>
                 </div>
                 <p className="text-xs text-[#8fa8db] font-mono max-w-xs leading-relaxed">
-                  Teammate matchmaking, mentor Q&As, and venue coordinates drop first in the official Delhi NCR WhatsApp channel.
+                  Teammate matchmaking, mentor Q&As, and event coordinates drop first in the official WhatsApp community.
                 </p>
                 <a
                   href="https://chat.whatsapp.com/"

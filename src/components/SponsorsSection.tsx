@@ -16,7 +16,7 @@ const sponsorPerks = [
   {
     icon: <Trophy className="w-5 h-5 text-[#4dd8ff]" />,
     title: 'Custom Bounties & Brand Impact',
-    description: 'Sponsor dedicated challenge tracks, unbox mystery prize bundles, and anchor the premier under-18 hackathon in Delhi NCR.',
+    description: 'Sponsor dedicated challenge tracks, unbox mystery prize bundles, and anchor the premier under-18 hackathon.',
   },
 ];
 
@@ -46,7 +46,7 @@ export const SponsorsSection: React.FC<{ onOpenSponsorModal: () => void }> = ({ 
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ffd700] animate-pulse shadow-[0_0_8px_#ffd700]" />
             <span className="font-pixel text-xs sm:text-sm text-[#ffd700] uppercase tracking-wider">
-              SPONSORSHIP APPLICATIONS OPEN FOR 15 NOV 2026
+              SPONSORSHIP APPLICATIONS CURRENTLY OPEN
             </span>
           </div>
         </div>
@@ -77,7 +77,7 @@ export const SponsorsSection: React.FC<{ onOpenSponsorModal: () => void }> = ({ 
         <div className="pt-6 border-t border-[#1e3a8a]/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="space-y-1">
             <h4 className="font-display font-bold text-base text-[#f5f0dc]">
-              Want to support teen builders in Delhi NCR?
+              Want to support India&apos;s next generation of builders?
             </h4>
             <p className="text-xs text-[#8fa8db] font-sans">
               Download our partner prospectus or send a direct inquiry to collaborate with us.

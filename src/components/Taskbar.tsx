@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Radio, Music, Sparkles, Folder, Terminal, Calendar, HelpCircle, UserPlus, ExternalLink } from 'lucide-react';
+import { Volume2, VolumeX, Radio, Music, Sparkles, Folder, Terminal, Calendar, HelpCircle, UserPlus, ExternalLink, Dices } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
 
 interface TaskbarProps {
@@ -93,11 +93,19 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
               </button>
               <button
                 type="button"
+                onClick={() => scrollTo('break-card')}
+                className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
+              >
+                <Dices className="w-4 h-4 text-[#ffd700]" />
+                <span className="font-semibold">03. What&apos;s New: Break Card</span>
+              </button>
+              <button
+                type="button"
                 onClick={() => scrollTo('tracks')}
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
                 <Sparkles className="w-4 h-4 text-[#7928ca]" />
-                <span className="font-semibold">03. Tracks & Themes</span>
+                <span className="font-semibold">04. Tracks &amp; Themes</span>
               </button>
               <button
                 type="button"
@@ -105,7 +113,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
                 <Calendar className="w-4 h-4 text-[#008080]" />
-                <span className="font-semibold">04. Timeline & Schedule</span>
+                <span className="font-semibold">05. Timeline &amp; Schedule</span>
               </button>
               <button
                 type="button"
@@ -113,7 +121,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4 text-[#0055ea]" />
-                <span className="font-semibold">05. Partners & Sponsors</span>
+                <span className="font-semibold">06. Partners &amp; Sponsors</span>
               </button>
               <button
                 type="button"
@@ -121,7 +129,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
                 <HelpCircle className="w-4 h-4 text-[#d93829]" />
-                <span className="font-semibold">06. System FAQ</span>
+                <span className="font-semibold">07. System FAQ</span>
               </button>
             </div>
 

@@ -90,7 +90,7 @@ export const HolographicCD: React.FC<HolographicCDProps> = ({
               Hacker Diaries // 700MB
             </div>
             <div className="text-[9px] tracking-wider text-[#1e3a8a] font-bold drop-shadow-[0_1px_0_rgba(255,255,255,0.7)] mt-auto mb-2">
-              DELHI NCR • 15.11.2026
+              DISC_01 // STEREO AUDIO
             </div>
           </div>
 

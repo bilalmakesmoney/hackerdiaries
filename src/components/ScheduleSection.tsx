@@ -45,8 +45,8 @@ const scheduleItems: ScheduleItem[] = [
   {
     id: '6',
     time: '02:00 PM – 05:30 PM',
-    title: 'Hacking Resumes (Sprint – 2)',
-    description: 'Intensive build session. Core feature engineering, 1-on-1 mentor guidance, and gameplay debugging.',
+    title: 'Hacking Resumes (Sprint – 2 & Break Card Drop)',
+    description: 'Break Cards revealed! Teams draw their mystery constraint, adapt their build, and sprint to the finish line.',
     highlight: true,
   },
   {

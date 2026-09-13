@@ -17,7 +17,7 @@ export const AboutSection: React.FC<{ onRegisterClick: () => void }> = ({ onRegi
           WHAT IS <span className="gold-text-stroke text-[#ffc83b]">HACKER DIARIES</span>?
         </h2>
         <p className="mt-3 text-sm sm:text-base text-[#adc2ea] font-sans max-w-xl mx-auto leading-relaxed">
-          The premier 12-hour offline playground in Delhi NCR for India&apos;s next generation of under-18 builders.
+          The premier 12-hour offline build sprint for India&apos;s next generation of under-18 builders.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export const AboutSection: React.FC<{ onRegisterClick: () => void }> = ({ onRegi
               Raw internet curiosity, zero gatekeeping, and pure <span className="text-[#ffd700]">builder momentum</span>.
             </h3>
             <p className="text-xs sm:text-sm text-[#c7d9fa] leading-relaxed font-sans">
-              Remember when building on the internet was about the electric thrill of shipping something crazy from your bedroom? <strong>Hacker Diaries</strong> brings that unfiltered creative energy to an offline arena in Delhi NCR.
+              Remember when building on the internet was about the electric thrill of shipping something crazy from your bedroom? <strong>Hacker Diaries</strong> brings that unfiltered creative energy to an offline arena.
             </p>
             <p className="text-xs sm:text-sm text-[#adc2ea] leading-relaxed font-sans">
               Over 12 concentrated hours, 100+ under-18 builders will design, code, and deploy standalone web applications and playable games with on-site mentorship.
@@ -151,7 +151,7 @@ export const AboutSection: React.FC<{ onRegisterClick: () => void }> = ({ onRegi
       <div className="mt-8 p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#0d2258] via-[#09173d] to-[#0d2258] border-2 border-[#1e4499] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
         <div className="space-y-1 text-center sm:text-left">
           <div className="font-display font-bold text-base text-[#f5f0dc]">
-            Ready to build in Delhi NCR on 15 Nov 2026?
+            Ready to ship your next big project?
           </div>
           <div className="font-mono text-xs text-[#8fa8db]">
             Limited to 100 builder seats • Free registration protocol

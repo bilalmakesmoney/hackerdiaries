@@ -243,3 +243,50 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ffb800;
 }
+
+/* 3D Card Flip & Holographic Foil Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-1200 {
+  perspective: 1200px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@keyframes holographic-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.holographic-foil {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.35) 0%,
+    rgba(77, 216, 255, 0.4) 25%,
+    rgba(255, 0, 128, 0.35) 50%,
+    rgba(0, 255, 170, 0.4) 75%,
+    rgba(255, 215, 0, 0.35) 100%
+  );
+  background-size: 300% 300%;
+  animation: holographic-shimmer 5s ease infinite;
+}
+
+
+
+

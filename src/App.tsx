@@ -6,9 +6,11 @@
 import React, { useState } from 'react';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
+import { BreakCardSection } from './components/BreakCardSection';
 import { TracksSection } from './components/TracksSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { SponsorsSection } from './components/SponsorsSection';
+import { OrganizersSection } from './components/OrganizersSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
@@ -60,7 +62,10 @@ export default function App() {
         {/* 2. ABOUT / WHAT IS IT */}
         <AboutSection onRegisterClick={handleOpenRegister} />
 
-        {/* 3. WHY JOIN / TRACKS OR THEMES */}
+        {/* 3. WHAT'S NEW / BREAK CARD MODIFIER */}
+        <BreakCardSection />
+
+        {/* 4. WHY JOIN / TRACKS OR THEMES */}
         <TracksSection onSelectTrack={handleSelectTrack} />
 
         {/* 4. SCHEDULE / TIMELINE */}
@@ -69,10 +74,13 @@ export default function App() {
         {/* 5. SPONSORS */}
         <SponsorsSection onOpenSponsorModal={handleOpenSponsor} />
 
-        {/* 6. FAQ */}
+        {/* 6. ORGANIZERS */}
+        <OrganizersSection />
+
+        {/* 7. FAQ */}
         <FAQSection />
 
-        {/* 7. CTA / REGISTER */}
+        {/* 8. CTA / REGISTER */}
         <CTASection onRegisterClick={handleOpenRegister} />
       </main>
 

@@ -241,7 +241,7 @@ export const RetroDigicam: React.FC<RetroDigicamProps> = ({
                 <Zap className="w-2.5 h-2.5 text-[#ffb800]" /> ISO 400 AUTO
               </span>
               <span className="text-[#0055ea] font-pixel text-[6px]">
-                DELHI NCR // 2026
+                LIVE FEED // RAW
               </span>
             </div>
           </div>

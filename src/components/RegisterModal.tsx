@@ -91,7 +91,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 </h3>
 
                 <p className="text-xs text-[#444] font-sans leading-relaxed max-w-xs mx-auto">
-                  Builder applications for Hacker Diaries (15 Nov 2026 • Delhi NCR) will open shortly. Drop your email below to get the official registration link sent straight to your inbox.
+                  Builder applications for Hacker Diaries will open shortly. Drop your email below to get the official registration link sent straight to your inbox.
                 </p>
               </div>
 

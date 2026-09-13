@@ -100,7 +100,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, onExp
 
         {/* Narrative / Era Micro-Pitch */}
         <p className="mt-4 sm:mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-[#c7d9fa] leading-relaxed font-sans px-2">
-          The golden age of raw internet curiosity is back. 12 hours of pure web development, creative hacking, and teen builder energy. No corporate suits. No gatekeeping. Just 100+ under-18 builders in Delhi NCR.
+          The golden age of raw internet curiosity is back. 12 hours of pure web development, creative hacking, and teen builder energy. No corporate suits. No gatekeeping. Just 100+ under-18 builders shipping together.
         </p>
 
         {/* Primary Chunky Y2K Action Buttons - Mobile Full Width & Thumb Friendly */}

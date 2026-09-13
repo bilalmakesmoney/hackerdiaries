@@ -75,28 +75,49 @@ class RetroAudioManager {
     } catch {}
   }
 
-  public playSuccess() {
+  public playLaserCharge() {
     if (this.isMuted) return;
     try {
       const ctx = this.getContext();
       if (!ctx) return;
       const now = ctx.currentTime;
-      // Cheerful 4-note ascending fanfare (C5, E5, G5, C6)
-      const notes = [523.25, 659.25, 783.99, 1046.50];
-      notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.exponentialRampToValueAtTime(1400, now + 0.35);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.3);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.38);
+    } catch {}
+  }
+
+  public playHologramReveal() {
+    if (this.isMuted) return;
+    try {
+      const ctx = this.getContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      // High-tech sci-fi power burst + crystalline chime chord
+      [659.25, 830.61, 987.77, 1318.51, 1975.53].forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
-        gain.gain.setValueAtTime(0.18, now + idx * 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.4);
+        osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+        gain.gain.setValueAtTime(0.16, now + idx * 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.6);
         osc.connect(gain);
         gain.connect(ctx.destination);
-        osc.start(now + idx * 0.08);
-        osc.stop(now + idx * 0.08 + 0.4);
+        osc.start(now + idx * 0.05);
+        osc.stop(now + idx * 0.05 + 0.6);
       });
     } catch {}
   }
+
 
   public playShutter() {
     if (this.isMuted) return;
