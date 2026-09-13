@@ -45,7 +45,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a]">
+    <div className="min-h-screen bg-[#070e2c] text-[#f5f0dc] relative selection:bg-[#ffb800] selection:text-[#0a1a4a] overflow-x-hidden">
       {/* Subtle Scanlines Overlay */}
       <div className="fixed inset-0 scanlines z-30 pointer-events-none opacity-40" />
 
