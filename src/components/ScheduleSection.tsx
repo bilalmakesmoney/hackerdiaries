@@ -45,8 +45,8 @@ const scheduleItems: ScheduleItem[] = [
   {
     id: '6',
     time: '02:00 PM – 05:30 PM',
-    title: 'Hacking Resumes (Sprint – 2 & Break Card Drop)',
-    description: 'Break Cards revealed! Teams draw their mystery constraint, adapt their build, and sprint to the finish line.',
+    title: 'Hacking Resumes (Sprint – 2 & QR Card Hunt)',
+    description: 'Venue QR stickers go live! Scout the venue, scan hidden QR codes to unlock powerful Buffs or wild Constraints, and sprint to code freeze.',
     highlight: true,
   },
   {

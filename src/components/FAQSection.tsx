@@ -55,6 +55,12 @@ const faqList: FAQ[] = [
   {
     id: 'faq-8',
     num: '08',
+    question: 'What is the secret venue QR card hunt?',
+    answer: 'Secret QR stickers are placed in hidden spots around the venue. When scanned on your phone, you draw a live holographic card that either grants your team a powerful Buff (like a confirmed stage presentation or +2 mins pitch time) or a fun creative Constraint (like no-mouse keyboard warrior mode or 8-bit sound fx).',
+  },
+  {
+    id: 'faq-9',
+    num: '09',
     question: 'Is this a Hack Club event?',
     answer: 'Hacker Diaries is an independently organized community hackathon run by high school teen builders, proudly inspired by and affiliated with the global Hack Club ethos of making cool projects and shipping with friends.',
   },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Radio, Music, Sparkles, Folder, Terminal, Calendar, HelpCircle, UserPlus, ExternalLink, Dices } from 'lucide-react';
+import { Volume2, VolumeX, Radio, Music, Sparkles, Folder, Terminal, Calendar, HelpCircle, UserPlus, ExternalLink, Dices, QrCode } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
 
 interface TaskbarProps {
@@ -96,8 +96,8 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
                 onClick={() => scrollTo('break-card')}
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
-                <Dices className="w-4 h-4 text-[#ffd700]" />
-                <span className="font-semibold">03. What&apos;s New: Break Card</span>
+                <QrCode className="w-4 h-4 text-[#ffd700]" />
+                <span className="font-semibold">03. What&apos;s New: QR Hunt</span>
               </button>
               <button
                 type="button"

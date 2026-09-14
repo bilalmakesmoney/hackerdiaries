@@ -1,77 +1,110 @@
 import React, { useState, useRef } from 'react';
-import { Sparkles, Zap, AlertTriangle, Shuffle, Cpu, ShieldCheck, Flame, Lock, Eye } from 'lucide-react';
+import { 
+  Lock, 
+  Trophy, 
+  Keyboard 
+} from 'lucide-react';
 import { retroAudio } from '../utils/audio';
-import confetti from 'canvas-confetti';
 
-interface BreakCardData {
+export interface QRCardData {
   id: string;
   code: string;
   name: string;
+  type: 'buff' | 'constraint';
+  attribute: string;
   category: string;
+  stars: number;
   isLocked: boolean;
   accentColor: string;
-  constraint: string;
+  rule: string;
   flavor: string;
-  difficulty: string;
-  statusText: string;
+  atkStat: string;
+  defStat: string;
+  serialNumber: string;
 }
 
-const breakCards: BreakCardData[] = [
+export const unlockedBuffCard: QRCardData = {
+  id: 'buff-01',
+  code: 'HD-EN001',
+  name: 'Confirmed Stage Pitch',
+  type: 'buff',
+  attribute: '⚡ BUFF',
+  category: '[ HACKER / CONTINUOUS BUFF ]',
+  stars: 8,
+  isLocked: false,
+  accentColor: '#ffd700',
+  rule: 'Guaranteed final presentation slot on the main stage! When active, your team bypasses preliminary judge triage filtration.',
+  flavor: '"Securing your moment in the spotlight without sweating the first-round elimination cut."',
+  atkStat: 'STAGE / VIP',
+  defStat: 'TIMER / +120s',
+  serialNumber: '20261115',
+};
+
+export const unlockedConstraintCard: QRCardData = {
+  id: 'curse-01',
+  code: 'HD-EN002',
+  name: 'Mouse Forbidden (30m)',
+  type: 'constraint',
+  attribute: '⚠️ TRAP',
+  category: '[ HACKER / CONTINUOUS CONSTRAINT ]',
+  stars: 7,
+  isLocked: false,
+  accentColor: '#00e5ff',
+  rule: 'One developer on your team must write code for 30 consecutive minutes using only keyboard shortcuts (mouse and trackpad strictly forbidden).',
+  flavor: '"Master your Vim keybindings and terminal hotkeys under maximum hackathon pressure."',
+  atkStat: 'HOTKEY / MAX',
+  defStat: 'MOUSE / ZERO',
+  serialNumber: '20260404',
+};
+
+export const qrCards: QRCardData[] = [
+  unlockedBuffCard,
+  unlockedConstraintCard,
   {
-    id: 'bc-sample',
-    code: 'SAMPLE_#01',
-    name: 'Playable Mini-Game / Easter Egg',
-    category: 'SPRINT 2 MODIFIER',
-    isLocked: false,
-    accentColor: '#4dd8ff',
-    constraint: 'You must build and embed a fully playable mini-game (e.g., retro typing defense, 2D runner, clicker challenge, or puzzle game) directly inside your project that unlocks a secret feature.',
-    flavor: 'A substantial Sprint 2 engineering challenge: build the game loop, manage score state, and integrate it into your UI in 1.5–2 hours.',
-    difficulty: 'MID-SPRINT CHALLENGE',
-    statusText: 'SAMPLE UNLOCKED',
-  },
-  {
-    id: 'bc-locked-1',
-    code: 'SEALED_#??',
-    name: '??? CLASSIFIED MODIFIER ???',
-    category: 'TOP SECRET // SPRINT 2',
+    id: 'buff-secret',
+    code: 'HD-EN003',
+    name: '??? CLASSIFIED BUFF ???',
+    type: 'buff',
+    attribute: '★ SECRET',
+    category: '[ TOP SECRET / ENCRYPTED BUFF ]',
+    stars: 9,
     isLocked: true,
     accentColor: '#ffd700',
-    constraint: 'A surprise challenge modifier sealed inside your physical team envelope. Requires ~1.5 to 2 hours of focused architecture, gameplay, or feature engineering during Sprint 2.',
-    flavor: 'Confidential protocol. Every team draws their mystery modifier at 02:00 PM to build before final code freeze.',
-    difficulty: 'TIME-BASED PIVOT',
-    statusText: 'SEALED ENVELOPE',
+    rule: 'Classified advantage sealed inside hidden physical venue QR stickers. Scan on-site during hackathon hours to decrypt and activate.',
+    flavor: '"A powerful secret modifier waiting to be discovered by keen-eyed builders at the offline venue."',
+    atkStat: '????',
+    defStat: '????',
+    serialNumber: '????????',
   },
   {
-    id: 'bc-locked-2',
-    code: 'ENCRYPTED_#??',
-    name: '??? MYSTERY CONSTRAINT ???',
-    category: 'ENCRYPTED // SPRINT 2',
+    id: 'curse-secret',
+    code: 'HD-EN004',
+    name: '??? SECRET CONSTRAINT ???',
+    type: 'constraint',
+    attribute: '★ SECRET',
+    category: '[ TOP SECRET / ENCRYPTED MODIFIER ]',
+    stars: 8,
     isLocked: true,
     accentColor: '#ff2a85',
-    constraint: 'A creative sprint modifier (such as real-time procedural audio synthesis, offline-first local persistence, or full CLI terminal navigation) drawn at kickoff.',
-    flavor: 'Designed to test your team\'s adaptability, rapid prototyping, and creative problem solving under time constraints.',
-    difficulty: 'TIME-BASED PIVOT',
-    statusText: 'TOP SECRET',
+    rule: 'Classified sprint modifier hidden around the venue. Unlocks unexpected creative build constraints for bonus organizer brownie points.',
+    flavor: '"High-stakes creative test designed to push adaptability to the absolute edge."',
+    atkStat: '????',
+    defStat: '????',
+    serialNumber: '????????',
   },
 ];
 
-
-
-interface HolographicBreakCardProps {
-  className?: string;
+interface CardViewProps {
+  card: QRCardData;
+  onClick?: () => void;
+  isFlipping?: boolean;
 }
 
-export const HolographicBreakCard: React.FC<HolographicBreakCardProps> = ({
-  className = '',
-}) => {
-  const [cardIndex, setCardIndex] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
+export const InteractiveHolographicCard: React.FC<CardViewProps> = ({ card, onClick, isFlipping = false }) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0, glareX: 50, glareY: 50 });
   const cardRef = useRef<HTMLDivElement>(null);
+  const isBuff = card.type === 'buff';
 
-  const currentCard = breakCards[cardIndex];
-
-  // Smooth 3D Mouse Parallax Tilt
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current || isFlipping) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -92,170 +125,198 @@ export const HolographicBreakCard: React.FC<HolographicBreakCardProps> = ({
     setTilt({ x: 0, y: 0, glareX: 50, glareY: 50 });
   };
 
-  // Clean 3D Flip & Draw Mechanic
-  const handleDraw = () => {
-    if (isFlipping) return;
-    setIsFlipping(true);
-    retroAudio.playClick();
-
-    setTimeout(() => {
-      const nextIdx = (cardIndex + 1) % breakCards.length;
-      setCardIndex(nextIdx);
-      retroAudio.playAlert();
-
-      if (!breakCards[nextIdx].isLocked) {
-        try {
-          confetti({
-            particleCount: 45,
-            spread: 60,
-            origin: { y: 0.6 },
-            colors: ['#ffd700', '#4dd8ff', '#ffb800', '#ffffff'],
-          });
-        } catch {}
-      }
-
-      setTimeout(() => {
-        setIsFlipping(false);
-      }, 200);
-    }, 200);
-  };
-
   return (
-    <div className={`flex flex-col items-center select-none w-full ${className}`}>
-      
-      {/* 3D Perspective Card Container */}
-      <div 
-        className="relative py-2 px-2 flex flex-col items-center w-full"
-        style={{ perspective: '1200px' }}
+    <div 
+      className="relative py-2 px-2 flex flex-col items-center w-full"
+      style={{ perspective: '1200px' }}
+    >
+      {/* Ambient Outer Halo strictly tailored to website palette */}
+      <div
+        className="absolute inset-4 rounded-3xl blur-3xl opacity-80 transition-opacity duration-300 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 85, 234, 0.45) 0%, rgba(255, 215, 0, 0.25) 50%, transparent 80%)',
+        }}
+      />
+
+      {/* Yu-Gi-Oh / TCG Vertical Card in Cohesive Y2K Midnight Navy & Gold */}
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
+        className={`w-full max-w-[350px] sm:max-w-[390px] min-h-[530px] sm:min-h-[590px] rounded-2xl cursor-pointer relative group transition-all duration-200 ease-out select-none shadow-[0_30px_70px_rgba(0,0,0,0.98)] p-3 sm:p-3.5 flex flex-col justify-between ${
+          isFlipping ? 'scale-95 rotate-3 opacity-85' : 'scale-100 hover:scale-[1.02]'
+        }`}
+        style={{
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transformStyle: 'preserve-3d',
+          background: 'linear-gradient(165deg, #0d2258 0%, #07153a 45%, #030a1c 100%)',
+          border: '2px solid #ffd700',
+          boxShadow: '0 0 24px rgba(0, 85, 234, 0.4), inset 0 0 20px rgba(0, 85, 234, 0.25), 0 25px 60px rgba(0,0,0,0.95)',
+        }}
+        title="Click card to change / draw next!"
       >
-        {/* Soft Ambient Card Glow */}
+        {/* Holographic Prismatic Rainbow Sheen Foil */}
         <div
-          className="absolute inset-4 rounded-3xl blur-2xl opacity-60 transition-opacity duration-300 pointer-events-none"
+          className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none transition-opacity duration-300 group-hover:opacity-75 rounded-xl overflow-hidden"
           style={{
-            background: currentCard.isLocked
-              ? 'radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,42,133,0.2) 50%, transparent 80%)'
-              : 'radial-gradient(circle, rgba(255,215,0,0.35) 0%, rgba(77,216,255,0.25) 50%, transparent 80%)',
+            background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.95) 0%, rgba(77,216,255,0.5) 30%, rgba(255,215,0,0.5) 60%, transparent 100%)`,
           }}
         />
 
-        {/* The 3D Interactive Break Card */}
-        <div
-          ref={cardRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          onClick={handleDraw}
-          className={`w-full max-w-[360px] sm:max-w-[430px] min-h-[480px] sm:min-h-[520px] rounded-2xl cursor-pointer relative group transition-all duration-200 ease-out ${
-            isFlipping ? 'scale-95 rotate-3 opacity-85' : 'scale-100 hover:scale-[1.02]'
-          }`}
+        {/* --- 1. TOP EMBOSSED NAMEPLATE BANNER --- */}
+        <div 
+          className="w-full px-3 py-1.5 rounded-lg flex items-center justify-between gap-2 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.7),0_1px_0_rgba(255,255,255,0.15)] border border-[#ffd700]/70 relative z-10 shrink-0"
           style={{
-            transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-            transformStyle: 'preserve-3d',
+            background: 'linear-gradient(180deg, #183d96 0%, #0e2560 50%, #091840 100%)',
           }}
-          title="Click card to draw / flip modifier!"
         >
-          {/* Card Frame Body */}
-          <div
-            className={`w-full h-full rounded-2xl border-2 shadow-[0_20px_50px_rgba(0,0,0,0.95)] overflow-hidden relative flex flex-col justify-between ${
-              currentCard.isLocked ? 'border-[#ffd700]/80' : 'border-[#ffd700]'
-            }`}
+          {/* Card Name - Full Text Display */}
+          <h2 className="font-display font-black text-xs sm:text-sm md:text-[15px] text-[#f5f0dc] tracking-wide uppercase leading-tight flex-1">
+            {card.name}
+          </h2>
+
+          {/* Attribute Orb */}
+          <div 
+            className="px-2 py-0.5 rounded font-pixel text-[9px] font-black uppercase tracking-wider flex items-center gap-1 shadow-sm border shrink-0"
             style={{
-              background: currentCard.isLocked
-                ? 'linear-gradient(165deg, #12102e 0%, #0a0b21 50%, #040512 100%)'
-                : 'linear-gradient(165deg, #0e2358 0%, #071438 50%, #030a1c 100%)',
+              backgroundColor: `${card.accentColor}25`,
+              borderColor: card.accentColor,
+              color: card.accentColor,
             }}
           >
-            {/* Holographic Prismatic Rainbow Sheen */}
-            <div
-              className="absolute inset-0 opacity-35 mix-blend-color-dodge pointer-events-none transition-opacity duration-300 group-hover:opacity-65"
-              style={{
-                background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.9) 0%, rgba(77,216,255,0.45) 30%, rgba(255,215,0,0.45) 60%, transparent 100%)`,
-              }}
-            />
-
-            {/* Subtle Matrix Foil Pattern */}
-            <div
-              className="absolute inset-0 opacity-15 pointer-events-none"
-              style={{
-                backgroundImage: 'radial-gradient(#4dd8ff 1.2px, transparent 1.2px)',
-                backgroundSize: '18px 18px',
-              }}
-            />
-
-            {/* XP Luna Classic Header */}
-            <div className="xp-titlebar px-4 py-2 flex items-center justify-between border-b-2 border-[#ffd700] select-none z-10 shrink-0">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ffd700] shadow-[0_0_8px_#ffd700]" />
-                <span className="font-pixel text-xs sm:text-sm text-white tracking-wider font-bold">
-                  BREAK_CARD.EXE
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs text-[#ffd700] font-black">
-                  [{currentCard.code}]
-                </span>
-                <span className="w-2.5 h-2.5 rounded-xs bg-[#ff5555]" />
-              </div>
-            </div>
-
-            {/* Card Content Interior */}
-            <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 relative z-10 text-left">
-              
-              <div className="space-y-4">
-                {/* Constraint Title */}
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-[#f5f0dc] tracking-wide leading-tight pt-1">
-                  {currentCard.name}
-                </h3>
-
-                {/* Mandatory Rule Box: Soft, readable, and easy on the eyes */}
-                <div className="p-4 sm:p-5 rounded-xl bg-[#061129]/90 border border-[#1e3a8a] text-xs sm:text-sm font-sans text-[#f5f0dc] leading-relaxed shadow-inner space-y-2">
-                  <div className="flex items-center gap-1.5 font-pixel text-xs text-[#ffd700] uppercase font-bold tracking-wide">
-                    {currentCard.isLocked ? (
-                      <>
-                        <Lock className="w-3.5 h-3.5 text-[#ffd700]" />
-                        <span>SEALED MODIFIER:</span>
-                      </>
-                    ) : (
-                      <>
-                        <AlertTriangle className="w-3.5 h-3.5 text-[#ffd700]" />
-                        <span>MANDATORY RULE:</span>
-                      </>
-                    )}
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#f5f0dc] leading-relaxed">
-                    {currentCard.constraint}
-                  </p>
-                </div>
-
-                {/* Flavor / Context Note Below Rule */}
-                <p className="text-xs sm:text-[13px] text-[#adc2ea] font-mono italic leading-relaxed pt-0.5">
-                  &quot;{currentCard.flavor}&quot;
-                </p>
-              </div>
-
-              {/* Bottom Card Footer: Action integrated directly on the card */}
-              <div className="pt-4 border-t border-[#1e3a8a]/70 flex items-center justify-between text-xs font-mono text-[#8fa8db]">
-                <span className="text-[#8fa8db] font-mono text-[11px] sm:text-xs">
-                  SPRINT 2 // 12-HR PROTOCOL
-                </span>
-
-                <div className="px-3.5 py-1.5 rounded-lg bg-[#ffd700] text-[#050e26] border border-[#ffe033] font-pixel text-[11px] sm:text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,215,0,0.4)] group-hover:shadow-[0_0_18px_rgba(255,215,0,0.7)] group-hover:scale-105 transition-all">
-                  <Shuffle className="w-3.5 h-3.5 text-[#050e26] animate-pulse" />
-                  <span className="font-black">CLICK TO DRAW</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Corner Bracket Accents */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/70 pointer-events-none rounded-tl-xl" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white/70 pointer-events-none rounded-br-xl" />
+            <span>{card.attribute}</span>
           </div>
         </div>
-      </div>
 
+        {/* --- 2. STARS LEVEL BAR --- */}
+        <div className="w-full flex items-center justify-end gap-1 px-1 py-0.5 relative z-10 shrink-0">
+          {Array.from({ length: card.stars }).map((_, i) => (
+            <div 
+              key={i} 
+              className="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-[#eab308] to-[#fde047] border border-[#78350f] shadow-xs flex items-center justify-center text-[8px] text-[#78350f] font-black"
+            >
+              ★
+            </div>
+          ))}
+        </div>
+
+        {/* --- 3. CENTRAL ARTWORK FRAME --- */}
+        <div 
+          className="w-full aspect-[4/3] rounded-lg overflow-hidden relative z-10 shadow-[inset_2px_2px_6px_rgba(0,0,0,0.9),0_1px_0_rgba(255,255,255,0.15)] border-2 border-[#1e4499] flex items-center justify-center p-3"
+          style={{
+            background: 'radial-gradient(circle at 50% 35%, #132f7a 0%, #08173d 55%, #020718 100%)',
+          }}
+        >
+          {/* Matrix Cyber Lines */}
+          <div 
+            className="absolute inset-0 opacity-25 pointer-events-none"
+            style={{
+              backgroundImage: 'radial-gradient(#4dd8ff 1.2px, transparent 1.2px)',
+              backgroundSize: '16px 16px',
+            }}
+          />
+
+          {/* Central Thematic Illustration Graphic */}
+          <div className="relative flex flex-col items-center justify-center text-center space-y-2 z-10">
+            <div 
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center border-2"
+              style={{
+                backgroundColor: `${card.accentColor}18`,
+                borderColor: card.accentColor,
+                boxShadow: `0 0 24px ${card.accentColor}50`,
+              }}
+            >
+              {card.isLocked ? (
+                <Lock className="w-9 h-9 sm:w-11 sm:h-11 text-[#ffd700] animate-pulse" />
+              ) : isBuff ? (
+                <Trophy className="w-9 h-9 sm:w-11 sm:h-11 text-[#ffd700] animate-bounce" />
+              ) : (
+                <Keyboard className="w-9 h-9 sm:w-11 sm:h-11 text-[#00e5ff] animate-pulse" />
+              )}
+            </div>
+
+            <div 
+              className="font-pixel text-[10px] tracking-widest font-black uppercase px-2.5 py-0.5 rounded bg-[#030919]/80 border backdrop-blur-xs"
+              style={{ color: card.accentColor, borderColor: `${card.accentColor}60` }}
+            >
+              [ {card.code} ]
+            </div>
+          </div>
+
+          {/* Holographic Reflection */}
+          <div
+            className="absolute inset-0 opacity-45 mix-blend-color-dodge pointer-events-none"
+            style={{
+              background: `linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.5) 45%, rgba(77,216,255,0.4) 60%, transparent 80%)`,
+            }}
+          />
+        </div>
+
+        {/* --- 4. BOTTOM LORE / EFFECT TEXT BOX --- */}
+        <div 
+          className="w-full p-3 rounded-lg relative z-10 shadow-[inset_1px_1px_4px_rgba(0,0,0,0.8),0_1px_0_rgba(255,255,255,0.1)] border border-[#1e4499] flex flex-col justify-between space-y-2 mt-1 shrink-0"
+          style={{
+            background: 'linear-gradient(180deg, rgba(8, 23, 61, 0.95) 0%, rgba(4, 12, 36, 0.95) 100%)',
+          }}
+        >
+          {/* Category Header */}
+          <div 
+            className="font-pixel text-[9px] sm:text-[10px] font-bold tracking-wider uppercase border-b border-[#1e3a8a]/70 pb-1 flex items-center justify-between"
+          >
+            <span style={{ color: card.accentColor }}>{card.category}</span>
+            <span className="text-[#8fa8db] font-mono text-[9px]">OFFLINE 2026</span>
+          </div>
+
+          {/* Main Rule Description */}
+          <p className="font-sans text-[11px] sm:text-xs text-[#f5f0dc] font-medium leading-snug">
+            {card.rule}
+          </p>
+
+          {/* Flavor Quote */}
+          <p className="font-mono italic text-[9px] sm:text-[10px] text-[#adc2ea] leading-tight pt-0.5">
+            {card.flavor}
+          </p>
+
+          {/* Stats Bar (ATK / DEF Style) */}
+          <div className="pt-1.5 border-t border-[#1e3a8a]/70 flex items-center justify-between font-mono text-[10px] sm:text-[11px] font-bold text-[#8fa8db]">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[#8fa8db]">ATK/</span>
+              <span className="font-sans font-bold text-xs text-[#ffd700]">{card.atkStat}</span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <span className="text-[#8fa8db]">DEF/</span>
+              <span className="font-sans font-bold text-xs text-[#00e5ff]">{card.defStat}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* --- 5. CARD FOOTER & SECURITY HOLOGRAM --- */}
+        <div className="w-full flex items-center justify-between text-[8px] font-mono text-[#8fa8db] px-1 pt-1 relative z-10 shrink-0">
+          <span>{card.serialNumber}</span>
+
+          {/* Gold Security Hologram Square Stamp */}
+          <div className="flex items-center gap-1.5">
+            <div 
+              className="w-3.5 h-3.5 rounded-[1px] shadow-sm border border-[#ffd700]/70 overflow-hidden relative"
+              style={{
+                background: 'linear-gradient(135deg, #fde047 0%, #ca8a04 40%, #ffffff 60%, #a16207 100%)',
+              }}
+              title="Official Hacker Diaries Holographic Security Stamp"
+            >
+              <div 
+                className="absolute inset-0 opacity-80 mix-blend-color-dodge"
+                style={{
+                  background: 'linear-gradient(45deg, rgba(255,0,128,0.5), rgba(0,229,255,0.5))',
+                }}
+              />
+            </div>
+            <span>© 2026 HACKER DIARIES</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 };
-
-
-
-
