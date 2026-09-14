@@ -45,12 +45,12 @@ export const BreakCardSection: React.FC<BreakCardSectionProps> = ({ onOpenCardPa
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d2159] border border-[#ffd700]/60 shadow-[0_0_16px_rgba(255,215,0,0.3)] mb-4">
           <QrCode className="w-4 h-4 text-[#ffd700]" />
           <span className="font-pixel text-xs sm:text-sm text-[#ffd700] tracking-widest uppercase font-bold">
-            // VENUE DISCOVERY PROTOCOL • WHAT&apos;S NEW
+            // VENUE DISCOVERY PROTOCOL
           </span>
         </div>
 
         <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-white font-black tracking-wide leading-tight drop-shadow-md">
-          HIDDEN QR CODES: <span className="gold-text-stroke text-[#ffc83b]">VENUE SECRETS</span>
+          WHAT&apos;S NEW: <span className="gold-text-stroke text-[#ffc83b]">VENUE SECRETS</span>
         </h2>
 
         <p className="mt-4 text-base sm:text-lg text-[#c2d4f8] font-sans max-w-3xl mx-auto leading-relaxed font-normal">

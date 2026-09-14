@@ -97,7 +97,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onOpenRegister, onOpenSponsor 
                 className="w-full text-left px-2 py-1.5 rounded hover:bg-[#2f71eb] hover:text-white flex items-center gap-2"
               >
                 <QrCode className="w-4 h-4 text-[#ffd700]" />
-                <span className="font-semibold">03. What&apos;s New: QR Hunt</span>
+                <span className="font-semibold">03. What&apos;s New: Venue Secrets</span>
               </button>
               <button
                 type="button"
