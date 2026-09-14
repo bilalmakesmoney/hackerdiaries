@@ -84,10 +84,6 @@ export const QRCardPage: React.FC<QRCardPageProps> = ({ onBack }) => {
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO MAIN SITE</span>
         </button>
-
-        <div className="font-pixel text-[11px] sm:text-xs text-[#ffd700] tracking-wider uppercase">
-          [ VENUE CARD DECRYPTOR ]
-        </div>
       </header>
 
       {/* Main Content: Heading, Centered Card & Action */}
