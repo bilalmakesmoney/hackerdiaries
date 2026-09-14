@@ -87,7 +87,7 @@ export const SystemAlertModal: React.FC<SystemAlertModalProps> = ({
                 {type === 'sponsor' ? (
                   <>
                     <p className="font-bold text-[#1a2d54] text-sm leading-tight">
-                      Partner with 100+ high-agency under-18 builders & teen coders in Delhi NCR.
+                      Partner with 200+ high-agency under-18 builders & teen coders in Delhi NCR.
                     </p>
                     <p className="text-[#444444] text-[11px] leading-relaxed">
                       Sponsorship opportunities are currently open for Hacker Diaries 2026. Send us an inquiry to collaborate.

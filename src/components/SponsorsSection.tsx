@@ -6,7 +6,7 @@ const sponsorPerks = [
   {
     icon: <Code2 className="w-5 h-5 text-[#4dd8ff]" />,
     title: 'Developer Tooling & API Adoption',
-    description: 'Get your SDKs, APIs, and dev platforms directly into the hands of 100+ ambitious teen builders shipping production projects.',
+    description: 'Get your SDKs, APIs, and dev platforms directly into the hands of 200+ ambitious teen builders shipping production projects.',
   },
   {
     icon: <Users className="w-5 h-5 text-[#ffd700]" />,

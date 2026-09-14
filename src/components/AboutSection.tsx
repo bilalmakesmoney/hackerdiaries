@@ -47,7 +47,7 @@ export const AboutSection: React.FC<{ onRegisterClick: () => void }> = ({ onRegi
               Remember when building on the internet was about the electric thrill of shipping something crazy from your bedroom? <strong>Hacker Diaries</strong> brings that unfiltered creative energy to an offline arena.
             </p>
             <p className="text-xs sm:text-sm text-[#adc2ea] leading-relaxed font-sans">
-              Over 12 concentrated hours, 100+ under-18 builders will design, code, and deploy standalone web applications and playable games with on-site mentorship.
+              Over 12 concentrated hours, 200+ under-18 builders will design, code, and deploy standalone web applications and playable games with on-site mentorship.
             </p>
           </div>
 
@@ -154,7 +154,7 @@ export const AboutSection: React.FC<{ onRegisterClick: () => void }> = ({ onRegi
             Ready to ship your next big project?
           </div>
           <div className="font-mono text-xs text-[#8fa8db]">
-            Limited to 100 builder seats • Free registration protocol
+            Limited to 200+ builder seats • Free registration protocol
           </div>
         </div>
 

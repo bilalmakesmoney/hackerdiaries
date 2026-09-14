@@ -44,7 +44,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onRegisterClick }) => {
 
         {/* Pixel Subline */}
         <div className="mt-3 font-pixel text-xs sm:text-sm text-[#4dd8ff] tracking-widest uppercase cyan-glow">
-          [ 12 HOURS • 100+ UNDER-18 BUILDERS • ZERO COST ]
+          [ 12 HOURS • 200+ UNDER-18 BUILDERS • ZERO COST ]
         </div>
 
         <p className="mt-4 max-w-xl text-xs sm:text-sm md:text-base text-[#c7d9fa] leading-relaxed font-sans px-2">

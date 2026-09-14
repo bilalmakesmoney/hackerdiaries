@@ -1,24 +1,25 @@
 import React from 'react';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 import { retroAudio } from '../utils/audio';
 
 import leadImg from '../assets/organizers/lead.jpg';
 import co1Img from '../assets/organizers/co1.jpg';
 import co2Img from '../assets/organizers/co2.jpg';
+import tachyonImg from '../assets/organizers/org.jpg';
 
 interface Organizer {
   id: string;
   name: string;
   handle: string;
   role: string;
-  roleType: 'lead' | 'co';
+  roleType: 'lead' | 'co' | 'company';
   image: string;
   bgPosition: string;
+  bgColor?: string;
   accentColor: string;
   socials: {
     instagram?: string;
     linkedin?: string;
-    email?: string;
   };
 }
 
@@ -33,9 +34,8 @@ const organizers: Organizer[] = [
     bgPosition: '50% center',
     accentColor: '#00e5ff',
     socials: {
-      instagram: 'https://instagram.com',
-      linkedin: 'https://linkedin.com',
-      email: 'mailto:hackerdiaries@gmail.com',
+      instagram: 'https://www.instagram.com/ikraaaa_khan/',
+      linkedin: 'https://www.linkedin.com/in/ikra-khan-336664380/',
     },
   },
   {
@@ -48,9 +48,23 @@ const organizers: Organizer[] = [
     bgPosition: '50% center',
     accentColor: '#ffd700',
     socials: {
+      instagram: 'https://www.instagram.com/bilalcoree/',
+      linkedin: 'https://www.linkedin.com/in/muhammad-bilal-526ba4411/',
+    },
+  },
+  {
+    id: 'tachyon-org',
+    name: 'Tachyon',
+    handle: '@tachyon',
+    role: 'ORGANIZER',
+    roleType: 'company',
+    image: tachyonImg,
+    bgPosition: 'center',
+    bgColor: '#f8fafc',
+    accentColor: '#38bdf8',
+    socials: {
       instagram: 'https://instagram.com',
       linkedin: 'https://linkedin.com',
-      email: 'mailto:hackerdiaries@gmail.com',
     },
   },
   {
@@ -63,16 +77,15 @@ const organizers: Organizer[] = [
     bgPosition: '50% center',
     accentColor: '#ff2a85',
     socials: {
-      instagram: 'https://instagram.com',
-      linkedin: 'https://linkedin.com',
-      email: 'mailto:hackerdiaries@gmail.com',
+      instagram: 'https://www.instagram.com/party_4martians/',
+      linkedin: 'https://www.linkedin.com/in/diksha-%E2%98%85-9b3887416/',
     },
   },
 ];
 
 export const OrganizersSection: React.FC = () => {
   return (
-    <section id="organizers" className="py-16 sm:py-24 px-4 sm:px-6 max-w-5xl mx-auto relative z-10">
+    <section id="organizers" className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="text-center mb-12 sm:mb-14">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d2159] border border-[#ffd700]/60 shadow-[0_0_16px_rgba(255,215,0,0.3)] mb-4">
@@ -87,10 +100,11 @@ export const OrganizersSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* 3 Organizers Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+      {/* 4 Organizers Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 items-stretch">
         {organizers.map((org) => {
           const isLead = org.roleType === 'lead';
+          const isCompany = org.roleType === 'company';
 
           return (
             <div
@@ -117,7 +131,7 @@ export const OrganizersSection: React.FC = () => {
                     backgroundColor: `${org.accentColor}15`,
                   }}
                 >
-                  {isLead ? '★ LEAD' : 'CO-ORG'}
+                  {isLead ? '★ LEAD' : isCompany ? 'COMPANY' : 'CO-ORG'}
                 </span>
               </div>
 
@@ -126,12 +140,13 @@ export const OrganizersSection: React.FC = () => {
                 
                 {/* Clean Photo Container */}
                 <div
-                  className="w-full aspect-square max-w-[220px] rounded-xl overflow-hidden border-2 border-[#1e3a8a] group-hover:border-[#ffd700]/60 transition-colors bg-[#030919]"
+                  className="w-full aspect-square max-w-[220px] rounded-xl overflow-hidden border-2 border-[#1e3a8a] group-hover:border-[#ffd700]/60 transition-colors"
                   style={{
                     backgroundImage: `url(${org.image})`,
                     backgroundPosition: org.bgPosition,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
+                    backgroundColor: org.bgColor || '#030919',
                   }}
                 />
 
@@ -148,7 +163,7 @@ export const OrganizersSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Social Links (Instagram, LinkedIn, Email) */}
+                {/* Social Links (Instagram & LinkedIn) */}
                 <div className="pt-2 flex items-center justify-center gap-3">
                   {org.socials.instagram && (
                     <a
@@ -172,16 +187,6 @@ export const OrganizersSection: React.FC = () => {
                       aria-label={`${org.name}'s LinkedIn`}
                     >
                       <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {org.socials.email && (
-                    <a
-                      href={org.socials.email}
-                      onClick={() => retroAudio.playClick()}
-                      className="w-8 h-8 rounded-lg bg-[#071330] border border-[#1e3a8a] flex items-center justify-center text-[#c2d4f8] hover:text-[#ffd700] hover:border-[#ffd700] transition-colors"
-                      aria-label={`Email ${org.name}`}
-                    >
-                      <Mail className="w-4 h-4" />
                     </a>
                   )}
                 </div>
